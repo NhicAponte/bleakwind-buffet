@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// This is the Candlehearth Coffee test class 
+    /// </summary>
     public class CandlehearthCoffeeTests
     {
         [Fact]

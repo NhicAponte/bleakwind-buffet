@@ -12,6 +12,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// This is the Warrior Water test class 
+    /// </summary>
     public class WarriorWaterTests
     {
         [Fact]

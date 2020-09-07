@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Text;
 
 /* Author: Nhicolas Aponte 
- * Class Name: ThigsTBone.cs 
- * Purpose: Class used to represent higs T-Bone and its properties 
+ * Class Name: ThugsTBone.cs 
+ * Purpose: Class used to represent thugs T-Bone and its properties 
  */
 
-namespace Bleakwind.Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     public class ThugsTBone
     {

@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// This is the Markarth Milk test class 
+    /// </summary>
     public class MarkarthMilkTests
     {
         [Fact]

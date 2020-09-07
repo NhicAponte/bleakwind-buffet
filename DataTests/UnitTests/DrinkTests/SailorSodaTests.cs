@@ -13,6 +13,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// This is the Sailor Soda test class 
+    /// </summary>
     public class SailorSodaTests
     {
         [Fact]

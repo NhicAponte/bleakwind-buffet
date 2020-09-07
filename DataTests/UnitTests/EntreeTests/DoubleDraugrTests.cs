@@ -9,6 +9,9 @@ using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+    /// <summary>
+    /// This is the Double Draugr test class 
+    /// </summary>
     public class DoubleDraugrTests
     {   
         [Fact]
