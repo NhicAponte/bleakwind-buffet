@@ -7,7 +7,7 @@ using System.Text;
  * Purpose: Class used to represent Garden Orc Omelette and its properties 
  */
 
-namespace BleakwindBuffet.Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
     public class GardenOrcOmelette
     {

@@ -7,7 +7,7 @@ using System.Text;
  * Purpose: Class used to represent Double Draugr and its properties 
  */
 
-namespace BleakwindBuffet.Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
     public class DoubleDraugr
     {

@@ -8,7 +8,7 @@ using System.Text;
  * Purpose: Class used to represent Candlehearth Coffee and its properties 
  */
 
-namespace BleakwindBuffet.Data.Drink
+namespace BleakwindBuffet.Data.Drinks
 {
     public class CandlehearthCoffee
     {
@@ -65,8 +65,8 @@ namespace BleakwindBuffet.Data.Drink
             }
             set
             {
-                if (!value) specialInstructions.Add("Add Ice");
-                else specialInstructions.Remove("Add Ice");
+                if (value) specialInstructions.Add("Add ice");
+                else specialInstructions.Remove("Add ice");
                 ice = value;
             }
         }
@@ -82,7 +82,7 @@ namespace BleakwindBuffet.Data.Drink
             }
             set
             {
-                if (!value) specialInstructions.Add("Add cream");
+                if (value) specialInstructions.Add("Add cream");
                 else specialInstructions.Remove("Add cream");
                 roomForCream = value;
             }
@@ -118,7 +118,7 @@ namespace BleakwindBuffet.Data.Drink
         /// <returns></returns>
         public override string ToString()
         {
-            if (!decaf)
+            if (decaf)
             {
                 return $"{Size} Decaf Candlehearth Coffee"; 
 

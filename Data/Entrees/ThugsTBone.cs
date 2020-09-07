@@ -8,7 +8,7 @@ using System.Text;
  * Purpose: Class used to represent higs T-Bone and its properties 
  */
 
-namespace Bleakwind.Data.Entree
+namespace Bleakwind.Data.Entrees
 {
     public class ThugsTBone
     {

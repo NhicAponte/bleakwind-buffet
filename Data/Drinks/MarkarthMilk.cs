@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using System.Text;
 
 /* Author: Nhicolas Aponte 
- * Class Name: AretinoAppleJuice.cs 
- * Purpose: Class used to represent Aretino Apple Juice and its properties 
+ * Class Name: MarkarthMilk.cs 
+ * Purpose: Class used to represent Markarth Milk and its properties 
  */
 
-namespace BleakwindBuffet.Data.Drink
+namespace BleakwindBuffet.Data.Drinks
 {
-    public class AretinoAppleJuice
+    public class MarkarthMilk
     {
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
-        private Size size = Size.Small; 
+        private Size size = Size.Small;
         public Size Size
         {
             get
@@ -34,9 +34,9 @@ namespace BleakwindBuffet.Data.Drink
         {
             get
             {
-                if (size == Size.Small) return 0.62;
-                if (size == Size.Medium) return 0.87;
-                if (size == Size.Large) return 1.01;
+                if (size == Size.Small) return 1.05;
+                if (size == Size.Medium) return 1.11;
+                if (size == Size.Large) return 1.22;
                 else throw new NotImplementedException();
             }
         }
@@ -47,15 +47,15 @@ namespace BleakwindBuffet.Data.Drink
         {
             get
             {
-                if (size == Size.Small) return 44;
-                if (size == Size.Medium) return 88;
-                if (size == Size.Large) return 132;
+                if (size == Size.Small) return 56;
+                if (size == Size.Medium) return 72;
+                if (size == Size.Large) return 93; 
                 else throw new NotImplementedException();
             }
         }
         /// <summary>
-        /// gets and set the value of ice; adds "add ice" if true 
-        /// </summary>
+        /// gets and set the value of ice; adds "add ice" if true  
+        /// </summary> 
         private bool ice = false;
         public bool Ice
         {
@@ -65,26 +65,26 @@ namespace BleakwindBuffet.Data.Drink
             }
             set
             {
-                if (!value) specialInstructions.Add("Add Ice");
-                else specialInstructions.Remove("Add Ice");
+                if (value) specialInstructions.Add("Add ice");
+                else specialInstructions.Remove("Add ice");
                 ice = value;
             }
         }
         /// <summary>
         /// gets copy of stored list of special instructions 
-        /// </summary>
-        private List<string> specialInstructions = new List<string>();
+        /// </summary> 
+        private List<string> specialInstructions = new List<string>(); 
         public List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }
         /// <summary>
-        /// returns Aretino Apple Juice with size 
+        /// returns Markarth Milk with size 
         /// </summary>
-        /// <returns>string "{Size} Aretino Apple Juice"</returns>
+        /// <returns>string "{Size} Markarth Milk"</returns>
         public override string ToString()
         {
-            return $"{Size} Aretino Apple Juice"; 
-        }
+            return $"{Size} Markarth Milk";
+        } 
     }
 }

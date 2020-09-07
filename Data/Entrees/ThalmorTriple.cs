@@ -7,7 +7,7 @@ using System.Text;
  * Purpose: Class used to represent Thalmor Triple and its properties  
  */
 
-namespace BleakwindBuffet.Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
     public class ThalmorTriple
     {

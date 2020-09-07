@@ -7,7 +7,7 @@ using System.Text;
  * Purpose: Class used to represent Briarheart Burger and its properties 
  */
 
-namespace BleakwindBuffet.Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
     public class BriarheartBurger
     {
@@ -18,7 +18,7 @@ namespace BleakwindBuffet.Data.Entree
         /// <summary>
         /// get calories of burger 
         /// </summary>
-        public uint Calories => 732; 
+        public uint Calories => 743; 
 
         /// <summary>
         /// returns ketchup or adds "Hold ketchup" to list if false 

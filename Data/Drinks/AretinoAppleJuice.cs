@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 
 /* Author: Nhicolas Aponte 
- * Class Name: SailorSoda.cs 
- * Purpose: Class used to represent Sailor Soda and its properties 
+ * Class Name: AretinoAppleJuice.cs 
+ * Purpose: Class used to represent Aretino Apple Juice and its properties 
  */
 
-namespace BleakwindBuffet.Data.Drink
+namespace BleakwindBuffet.Data.Drinks
 {
-    public class SailorSoda 
+    public class AretinoAppleJuice
     {
         /// <summary>
         /// gets and sets the size of the drink 
@@ -20,11 +20,11 @@ namespace BleakwindBuffet.Data.Drink
         {
             get
             {
-                return size; 
+                return size;
             }
             set
             {
-                size = value; 
+                size = value;
             }
         }
         /// <summary>
@@ -34,10 +34,10 @@ namespace BleakwindBuffet.Data.Drink
         {
             get
             {
-                if (size == Size.Small) return 1.42; 
-                if (size == Size.Medium) return 1.74;
-                if (size == Size.Large) return 2.07;
-                else throw new NotImplementedException(); 
+                if (size == Size.Small) return 0.62;
+                if (size == Size.Medium) return 0.87;
+                if (size == Size.Large) return 1.01;
+                else throw new NotImplementedException();
             }
         }
         /// <summary>
@@ -47,16 +47,16 @@ namespace BleakwindBuffet.Data.Drink
         {
             get
             {
-                if (size == Size.Small) return 117; 
-                if (size == Size.Medium) return 153;
-                if (size == Size.Large) return 205;
-                else throw new NotImplementedException(); 
+                if (size == Size.Small) return 44;
+                if (size == Size.Medium) return 88;
+                if (size == Size.Large) return 132;
+                else throw new NotImplementedException();
             }
         }
         /// <summary>
-        /// gets and set the value of ice; adds "hold ice" if false 
+        /// gets and set the value of ice; adds "add ice" if true 
         /// </summary>
-        private bool ice = true;
+        private bool ice = false;
         public bool Ice
         {
             get
@@ -65,41 +65,26 @@ namespace BleakwindBuffet.Data.Drink
             }
             set
             {
-                if (!value) specialInstructions.Add("Hold ice");
-                else specialInstructions.Remove("Hold ice");
+                if (value) specialInstructions.Add("Add ice");
+                else specialInstructions.Remove("Add ice");
                 ice = value;
             }
         }
         /// <summary>
-        /// gets and sets the value of flavor 
-        /// </summary>
-        private SodaFlavor flavor = SodaFlavor.Cherry; 
-        public SodaFlavor Flavor
-        {
-            get
-            {
-                return flavor; 
-            }
-            set
-            {
-                flavor = value; 
-            }
-        }
-        /// <summary>
         /// gets copy of stored list of special instructions 
-        /// </summary> 
+        /// </summary>
         private List<string> specialInstructions = new List<string>();
         public List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }
         /// <summary>
-        /// returns Sailor Soda with size and flavor 
+        /// returns Aretino Apple Juice with size 
         /// </summary>
-        /// <returns>string "{Size} {Flavor} Sailor Soda"</returns>
+        /// <returns>string "{Size} Aretino Apple Juice"</returns>
         public override string ToString()
         {
-            return %"{Size} {Flavor} Sailor Soda";
+            return $"{Size} Aretino Apple Juice"; 
         }
     }
 }
