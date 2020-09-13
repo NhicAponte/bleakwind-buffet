@@ -1,56 +1,51 @@
-﻿using BleakwindBuffet.Data.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: WarriorWater.cs 
  * Purpose: Class used to represent Warrior Water and its properties 
  */
 
+using BleakwindBuffet.Data.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class WarriorWater
+    public class WarriorWater : Drink 
     {
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
         private Size size = Size.Small; 
-        public Size Size
-        {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-            }
-        }
         /// <summary>
         /// gets the price based on the size of the drink 
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Small) return 0.0;
-                if (size == Size.Medium) return 0.0;
-                if (size == Size.Large) return 0.0;
-                else return 0.0; 
+                switch (Size)
+                {
+                    case Size.Small: return 0.0;
+                    case Size.Medium: return 0.0;
+                    case Size.Large: return 0.0;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
             }
         }
         /// <summary>
         /// gets the calories based on the size of the drink 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small) return 0;
-                if (size == Size.Medium) return 0;
-                if (size == Size.Large) return 0;
-                else return 0;
+                switch (Size)
+                {
+                    case Size.Small: return 0;
+                    case Size.Medium: return 0;
+                    case Size.Large: return 0;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
             }
         }
         /// <summary>
@@ -91,7 +86,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// gets copy of stored list of special instructions 
         /// </summary> 
         private List<string> specialInstructions = new List<string>(); 
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }

@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: PhillyPoacher.cs 
  * Purpose: Class used to represent PhillyPoacher and its properties 
  */
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree 
     {
         /// <summary>
         /// gets price 
         /// </summary>
-        public double Price => 7.23;
+        public override double Price => 7.23;
         /// <summary>
         /// gets calories 
         /// </summary>
-        public uint Calories => 784;
+        public override uint Calories => 784;
         /// <summary>
         /// returns sirloin and adds "hold sirloin" to list if false 
         /// </summary>
@@ -74,7 +73,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// gets copy of stored list of special instructions 
         /// </summary> 
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }

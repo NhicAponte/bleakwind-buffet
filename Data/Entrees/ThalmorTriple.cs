@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: ThalmoreTriple.cs 
  * Purpose: Class used to represent Thalmor Triple and its properties  
  */
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThalmorTriple
+    public class ThalmorTriple : Entree 
     {
         /// <summary>
         /// gets burger price 
         /// </summary>
-        public double Price => 8.32;
+        public override double Price => 8.32;
         /// <summary>
         /// gets burger calories 
         /// </summary>
-        public uint Calories => 943;
+        public override uint Calories => 943;
         /// <summary>
         /// returns bun and adds "hold bun" to list if false 
         /// </summary>
@@ -193,8 +192,8 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// gets copy of stored list of special instructions 
         /// </summary>
-        private List<string> specialInstructions = new List<string>(); 
-        public List<string> SpecialInstructions
+        private List<string> specialInstructions = new List<string>();
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions); 
         }

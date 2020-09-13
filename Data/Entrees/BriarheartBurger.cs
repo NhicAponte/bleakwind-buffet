@@ -1,24 +1,23 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: BriarheartBurger.cs 
+ * Purpose: Class used to represent Briarheart Burger and its properties 
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-/* Author: Nhicolas Aponte 
- * Class Name: BriarheartBurger.cs 
- * Purpose: Class used to represent Briarheart Burger and its properties 
- */
-
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class BriarheartBurger
+    public class BriarheartBurger : Entree 
     {
         /// <summary>
         /// Gets burger price 
         /// </summary>
-        public double Price => 6.32; 
+        public override double Price => 6.32; 
         /// <summary>
         /// get calories of burger 
         /// </summary>
-        public uint Calories => 743; 
+        public override uint Calories => 743; 
 
         /// <summary>
         /// returns ketchup or adds "Hold ketchup" to list if false 
@@ -111,7 +110,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// returns copy of list of special instructions 
         /// </summary>
         private List<string> specialInstructions = new List<string>(); 
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions); 
         } 

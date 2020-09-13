@@ -16,6 +16,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
+        public void ShouldBeAnEntree()
+        {
+            GardenOrcOmelette g = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(g);
+        }
+        [Fact]
         public void ShouldInlcudeBroccoliByDefault()
         {
             GardenOrcOmelette g = new GardenOrcOmelette();
@@ -119,7 +125,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             GardenOrcOmelette g = new GardenOrcOmelette();
-            Assert.Equal("Garden Orc Omellete", g.ToString()); 
+            Assert.Equal("Garden Orc Omelette", g.ToString()); 
         }
     }
 }

@@ -1,22 +1,23 @@
-﻿using BleakwindBuffet.Data.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: CandlehearthCoffee.cs 
  * Purpose: Class used to represent Candlehearth Coffee and its properties 
  */
 
+
+using BleakwindBuffet.Data.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : Drink
     {
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
         private Size size = Size.Small; 
-        public Size Size
+        /*public Size Size
         {
             get
             {
@@ -26,31 +27,45 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 size = value;
             }
-        }
+        }*/ 
         /// <summary>
         /// gets the price based on the size of the drink 
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Small) return 0.75;
-                if (size == Size.Medium) return 1.25;
-                if (size == Size.Large) return 1.75; 
-                else throw new NotImplementedException();
+                switch (Size)
+                {
+                    case Size.Small: 
+                        return 0.75;
+                    case Size.Medium: 
+                        return 1.25;
+                    case Size.Large: 
+                        return 1.75;
+                    default: throw new NotImplementedException("Invalid Size");
+            }
+               
             }
         }
         /// <summary>
         /// gets the calories based on the size of the drink 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small) return 7;
-                if (size == Size.Medium) return 10;
-                if (size == Size.Large) return 20;
-                else throw new NotImplementedException();
+                switch (Size)
+                {
+                    case Size.Small: 
+                        return 7;
+                    case Size.Medium: 
+                        return 10;
+                    case Size.Large: 
+                        return 20;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
+                
             }
         }
         /// <summary>
@@ -108,7 +123,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// gets copy of stored list of special instructions 
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }

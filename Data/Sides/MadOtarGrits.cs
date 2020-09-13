@@ -1,63 +1,58 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: MadOtarGrits.cs 
+ * Purpose: Class used to represent Mad Otar Grits and its properties 
+ */
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-/* Author: Nhicolas Aponte 
- * Class Name: MadOtarGrits.cs 
- * Purpose: Class used to represent Mad Otar Grits and its properties 
- */
-
 namespace BleakwindBuffet.Data.Sides
 {
-    public class MadOtarGrits
+    public class MadOtarGrits : Side 
     {
         /// <summary>
         /// gets and sets size 
         /// </summary>
         private Size size = Size.Small; 
-        public Size Size
-        {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-            }
-        }
         /// <summary>
         /// gets price based on size 
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Small) return 1.22;
-                if (size == Size.Medium) return 1.58;
-                if (size == Size.Large) return 1.93;
-                else throw new NotImplementedException();
+
+                switch (Size)
+                {
+                    case Size.Small: return 1.22;
+                    case Size.Medium: return 1.58;
+                    case Size.Large: return 1.93;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
             }
         }
         /// <summary>
         /// gets calories based on size 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small) return 105;
-                if (size == Size.Medium) return 142;
-                if (size == Size.Large) return 179;
-                else throw new NotImplementedException();
+                switch (Size)
+                {
+                    case Size.Small: return 105;
+                    case Size.Medium: return 142;
+                    case Size.Large: return 179;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
             }
         }
         /// <summary>
         /// gets blank list 
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }

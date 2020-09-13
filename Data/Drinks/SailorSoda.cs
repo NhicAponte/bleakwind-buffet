@@ -1,56 +1,51 @@
-﻿using BleakwindBuffet.Data.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: SailorSoda.cs 
  * Purpose: Class used to represent Sailor Soda and its properties 
  */
 
+using BleakwindBuffet.Data.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class SailorSoda 
+    public class SailorSoda : Drink 
     {
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
         private Size size = Size.Small; 
-        public Size Size
-        {
-            get
-            {
-                return size; 
-            }
-            set
-            {
-                size = value; 
-            }
-        }
         /// <summary>
         /// gets the price based on the size of the drink 
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Small) return 1.42; 
-                if (size == Size.Medium) return 1.74;
-                if (size == Size.Large) return 2.07;
-                else throw new NotImplementedException(); 
+                switch (Size)
+                {
+                    case Size.Small: return 1.42;
+                    case Size.Medium: return 1.74;
+                    case Size.Large: return 2.07;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
             }
         }
         /// <summary>
         /// gets the calories based on the size of the drink 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small) return 117; 
-                if (size == Size.Medium) return 153;
-                if (size == Size.Large) return 205;
-                else throw new NotImplementedException(); 
+                switch (Size)
+                {
+                    case Size.Small: return 117;
+                    case Size.Medium: return 153;
+                    case Size.Large: return 205;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
             }
         }
         /// <summary>
@@ -89,7 +84,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// gets copy of stored list of special instructions 
         /// </summary> 
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }

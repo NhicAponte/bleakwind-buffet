@@ -1,28 +1,25 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: DoubleDraugr.cs 
  * Purpose: Class used to represent Double Draugr and its properties 
  */
 
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree 
     {
         /// <summary>
         /// gets burger price 
         /// </summary>
-        private double price = 7.32; 
-        public double Price
-        {
-            get => price; 
-        }
+        public override double Price => 7.32; 
         /// <summary>
         /// gets burger calories 
         /// </summary>
-        public uint Calories => 843;
+        public override uint Calories => 843;
         /// <summary>
         /// returns bun and adds "hold bun" to list if false 
         /// </summary>
@@ -164,9 +161,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// gets copy of stored list of special instructions 
         /// </summary>
         private List<string> specialInstructions = new List<string>(); 
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
-            get => new List<string>(SpecialInstructions); 
+            get => new List<string>(specialInstructions); 
         } 
         /// <summary>
         /// returns "Double Draugr" 

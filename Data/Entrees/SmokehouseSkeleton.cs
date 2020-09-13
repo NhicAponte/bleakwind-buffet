@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: SmokehouseSkeleton.cs 
  * Purpose: Class used to represent Smokehouse Skeleton and its properties 
  */
 
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree 
     {
         /// <summary>
         /// gets price 
         /// </summary>
-        public double Price => 5.62;
+        public override double Price => 5.62;
         /// <summary>
         /// gets calories 
         /// </summary>
-        public uint Calories => 602;
+        public override uint Calories => 602;
         /// <summary>
         /// returns sausageLink and adds "hold sausage" to list if false 
         /// </summary>
@@ -91,7 +91,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// gets copy of stored list of special instructions 
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }
@@ -101,7 +101,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>string "Smokehouse Skeleton"</returns>
         public override string ToString()
         {
-            return "Smokhouse Skeleton"; 
+            return "Smokehouse Skeleton"; 
         }
     }
 }

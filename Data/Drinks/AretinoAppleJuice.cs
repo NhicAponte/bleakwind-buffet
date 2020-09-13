@@ -1,22 +1,22 @@
-﻿using BleakwindBuffet.Data.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: AretinoAppleJuice.cs 
  * Purpose: Class used to represent Aretino Apple Juice and its properties 
  */
 
+using BleakwindBuffet.Data.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice : Drink 
     {
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
         private Size size = Size.Small; 
-        public Size Size
+        /*public Size Size
         {
             get
             {
@@ -26,31 +26,45 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 size = value;
             }
-        }
+        }*/
         /// <summary>
         /// gets the price based on the size of the drink 
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Small) return 0.62;
+                /*if (size == Size.Small) return 0.62;
                 if (size == Size.Medium) return 0.87;
                 if (size == Size.Large) return 1.01;
-                else throw new NotImplementedException();
+                else throw new NotImplementedException();*/
+                switch (Size)
+                {
+                    case Size.Small: return 0.62;
+                    case Size.Medium: return 0.87;
+                    case Size.Large: return 1.01;
+                    default: throw new NotImplementedException("Invalid Size"); 
+                }
             }
         }
         /// <summary>
         /// gets the calories based on the size of the drink 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small) return 44;
+                /*if (size == Size.Small) return 44;
                 if (size == Size.Medium) return 88;
                 if (size == Size.Large) return 132;
-                else throw new NotImplementedException();
+                else throw new NotImplementedException();*/
+                switch (Size)
+                {
+                    case Size.Small: return 44;
+                    case Size.Medium: return 88;
+                    case Size.Large: return 132;
+                    default: throw new NotImplementedException("Invalid Size"); 
+                }
             }
         }
         /// <summary>
@@ -74,7 +88,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// gets copy of stored list of special instructions 
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }

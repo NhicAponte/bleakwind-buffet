@@ -1,30 +1,29 @@
-﻿
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: ThugsTBone.cs 
+ * Purpose: Class used to represent thugs T-Bone and its properties 
+ */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-/* Author: Nhicolas Aponte 
- * Class Name: ThugsTBone.cs 
- * Purpose: Class used to represent thugs T-Bone and its properties 
- */
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThugsTBone
+    public class ThugsTBone : Entree 
     {
         /// <summary>
         /// gets price 
         /// </summary>
-        public double Price => 6.44;
+        public override double Price => 6.44;
         /// <summary>
         /// gets calories 
         /// </summary>
-        public uint Calories => 982;
+        public override uint Calories => 982;
         /// <summary>
         /// gets copy of stored list of special instructions 
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }

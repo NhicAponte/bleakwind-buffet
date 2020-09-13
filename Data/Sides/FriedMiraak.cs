@@ -10,54 +10,49 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class FriedMiraak
+    public class FriedMiraak : Side 
     {
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
         private Size size = Size.Small; 
-        public Size Size
-        {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                size = value;
-            }
-        }
         /// <summary>
         /// gets price base on size 
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
-                if (size == Size.Small) return 1.78;
-                if (size == Size.Medium) return 2.01;
-                if (size == Size.Large) return 2.88;
-                else throw new NotImplementedException();
+                switch (Size)
+                {
+                    case Size.Small: return 1.78;
+                    case Size.Medium: return 2.01;
+                    case Size.Large: return 2.88;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
             }
         }
         /// <summary>
         /// gets calories based on size 
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small) return 151;
-                if (size == Size.Medium) return 236;
-                if (size == Size.Large) return 306;
-                else throw new NotImplementedException();
+                switch (Size)
+                {
+                    case Size.Small: return 151;
+                    case Size.Medium: return 236;
+                    case Size.Large: return 306;
+                    default: throw new NotImplementedException("Invalid Size");
+                }
             }
         }
         /// <summary>
         /// gets a blank list 
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }

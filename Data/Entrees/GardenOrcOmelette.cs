@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-/* Author: Nhicolas Aponte 
+﻿/* Author: Nhicolas Aponte 
  * Class Name: GardenOrcOmelette.cs 
  * Purpose: Class used to represent Garden Orc Omelette and its properties 
  */
 
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree 
     {
         /// <summary>
         /// gets price 
         /// </summary>
-        public double Price => 4.57;
+        public override double Price => 4.57;
         /// <summary>
         /// gets calories 
         /// </summary>
-        public uint Calories => 404;
+        public override uint Calories => 404;
         /// <summary>
         /// returns broccoli and adds "hold broccoli" to list if false 
         /// </summary>
@@ -91,7 +91,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// gets copy of stored list of special instructions 
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get => new List<string>(specialInstructions);
         }
