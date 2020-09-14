@@ -22,27 +22,20 @@ namespace BleakwindBuffet.DataTests.UnitTests
         {
             /*
             BriarheartBurger b = new BriarheartBurger();
-            Entree eB = (Entree)b;
 
             DoubleDraugr dd = new DoubleDraugr();
-            Entree eDD = (Entree)dd;
 
             GardenOrcOmelette g = new GardenOrcOmelette();
-            Entree eG = (Entree)g;
 
             PhillyPoacher p = new PhillyPoacher();
-            Entree eP = (Entree)p;
 
             SmokehouseSkeleton s = new SmokehouseSkeleton();
-            Entree eS = (Entree)s;
 
             ThalmorTriple tt = new ThalmorTriple();
-            Entree eTT = (Entree)tt;
 
             ThugsTBone thu = new ThugsTBone();
-            Entree eTHU = (Entree)thu;
 
-            Assert.Collection<Entree>(eB, eDD, eG, eP, eS, eTT, eTHU, Menu.Entrees());*/
+            Assert.Collection<Entree>(b, dd, g, p, s, tt, thu, Menu.Entrees());*/
 
             Assert.Contains(Menu.Entrees(), (item) => { return item.ToString().Equals("Briarheart Burger"); });
             Assert.Contains(Menu.Entrees(), (item) => { return item.ToString().Equals("Double Draugr"); });
