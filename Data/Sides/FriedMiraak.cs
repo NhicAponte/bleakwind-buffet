@@ -10,7 +10,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class FriedMiraak : Side 
+    public class FriedMiraak : Side, IOrderItem
     {
         /// <summary>
         /// gets and sets the size of the drink 

@@ -8,7 +8,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A base class representing common properties of drinks 
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IOrderItem
     {
         //virtual can't be overriden but that's okay for size: can use a private backing variable  
         //abstract can be overriden so we use that since each 

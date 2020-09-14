@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public abstract class Side
+    public abstract class Side : IOrderItem
     {
         /// <summary>
         /// size of drink 

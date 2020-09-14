@@ -10,7 +10,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class SailorSoda : Drink 
+    public class SailorSoda : Drink, IOrderItem 
     {
         /// <summary>
         /// gets and sets the size of the drink 

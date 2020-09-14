@@ -4,11 +4,11 @@
  */ 
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Text; 
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class BriarheartBurger : Entree 
+    public class BriarheartBurger : Entree, IOrderItem
     {
         /// <summary>
         /// Gets burger price 

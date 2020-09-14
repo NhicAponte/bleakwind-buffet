@@ -11,7 +11,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee : Drink
+    public class CandlehearthCoffee : Drink, IOrderItem
     {
         /// <summary>
         /// gets and sets the size of the drink 
@@ -97,8 +97,8 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                if (value) specialInstructions.Add("Add cream");
-                else specialInstructions.Remove("Add cream");
+                if (value) specialInstructions.Add("Leave room for cream");
+                else specialInstructions.Remove("Leave room for cream");
                 roomForCream = value;
             }
         }

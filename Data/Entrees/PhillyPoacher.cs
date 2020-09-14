@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class PhillyPoacher : Entree 
+    public class PhillyPoacher : Entree, IOrderItem 
     {
         /// <summary>
         /// gets price 

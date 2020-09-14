@@ -9,7 +9,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class MadOtarGrits : Side 
+    public class MadOtarGrits : Side, IOrderItem
     {
         /// <summary>
         /// gets and sets size 
