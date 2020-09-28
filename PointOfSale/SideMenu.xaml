@@ -20,20 +20,20 @@
             Bleakwind Buffet
         </TextBlock>
         <ListView Grid.Row="1" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Stretch">
-            <Button>
+            <Button Name="friesButton">
                 Dragonborn Waffle Fries
             </Button>
-            <Button>
+            <Button Name="miraakButton">
                 Fried Miraak
             </Button>
-            <Button>
+            <Button Name="gritsButton">
                 Mad Otar Grits
             </Button>
-            <Button>
+            <Button Name="saladButton">
                 Vokun Salad
             </Button>
-        </ListView> 
-        <Button Grid.Row="2" Grid.Column="1" Height="60" Width="200" FontSize="30">
+        </ListView>
+        <Button Name="mainMenuButton" Grid.Row="2" Grid.Column="1" Height="60" Width="200" FontSize="30">
             Main Menu
         </Button>
     </Grid>

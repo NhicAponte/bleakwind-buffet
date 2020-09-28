@@ -27,7 +27,7 @@
                 Double Draugr 
             </Button>            
             <Button Name="thalmorButton">
-                Thalmore Triple 
+                Thalmor Triple 
             </Button>            
             <Button Name="phillyButton">
                 Philly Poacher 
@@ -44,7 +44,7 @@
                 Thugs T-Bone 
             </Button>                        
         </ListView>
-        <Button Grid.Row="2" Grid.Column="1" Height="60" Width="200" FontSize="30">
+        <Button Name="mainMenuButton" Grid.Row="2" Grid.Column="1" Height="60" Width="200" FontSize="30">
             Main Menu 
         </Button>
     </Grid>

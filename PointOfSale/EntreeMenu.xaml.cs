@@ -39,7 +39,8 @@ namespace PointOfSale
             phillyButton.Click += PhillyScreen;
             skeletonButton.Click += SkeletonScreen;
             tboneButton.Click += TBoneScreen;
-            thalmorButton.Click += ThalmorScreen; 
+            thalmorButton.Click += ThalmorScreen;
+            mainMenuButton.Click += MainMenuScreen; 
         }
         void BriarheartScreen(object sender, RoutedEventArgs e)
         {
@@ -68,6 +69,10 @@ namespace PointOfSale
         void ThalmorScreen(object sender, RoutedEventArgs e)
         {
             mainWindow.screenBorder.Child = new ThalmorTripleScreen();
+        }    
+        void MainMenuScreen(object sender, RoutedEventArgs e)
+        {
+            mainWindow.screenBorder.Child = new MainMenu();
         }
     }
 }

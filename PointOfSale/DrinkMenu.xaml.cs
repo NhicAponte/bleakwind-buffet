@@ -37,7 +37,8 @@ namespace PointOfSale
             coffeeButton.Click += CoffeeScreen;
             milkButton.Click += MilkScreen;
             sodaButton.Click += SodaScreen;
-            waterButton.Click += WaterScreen; 
+            waterButton.Click += WaterScreen;
+            mainMenuButton.Click += MainMenuScreen;
         }
 
         void CoffeeScreen(object sender, RoutedEventArgs e)
@@ -59,6 +60,10 @@ namespace PointOfSale
         void WaterScreen(object sender, RoutedEventArgs e)
         {
             mainWindow.screenBorder.Child = new WarriorWaterScreen();
+        }
+        void MainMenuScreen(object sender, RoutedEventArgs e)
+        {
+            mainWindow.screenBorder.Child = new MainMenu();
         }
     }
 }

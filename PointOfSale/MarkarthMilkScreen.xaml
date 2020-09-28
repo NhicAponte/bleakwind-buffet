@@ -19,10 +19,21 @@
         <TextBlock FontWeight="Bold" TextAlignment="Center" FontSize="25" Grid.ColumnSpan="2"> 
             Customize Markarth Milk
         </TextBlock>
-        <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="Ingredients" Grid.Row="1" Grid.RowSpan="2">
+        <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="modList" Grid.Row="1" Grid.RowSpan="2">
             <CheckBox>
                 Ice
             </CheckBox>
+        </ListView>
+        <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="sizeList" Grid.Row="2">
+            <RadioButton>
+                Small
+            </RadioButton>
+            <RadioButton>
+                Medium
+            </RadioButton>
+            <RadioButton>
+                Large
+            </RadioButton>
         </ListView>
         <Button Grid.Column="1" Grid.Row="1" Height="60" Width="200" FontSize="30">
             Add To Order

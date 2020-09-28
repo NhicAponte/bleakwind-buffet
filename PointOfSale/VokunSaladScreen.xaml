@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.CandlehearthCoffeeScreen"
+﻿<UserControl x:Class="PointOfSale.VokunSaladScreen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,25 +17,17 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock FontWeight="Bold" TextAlignment="Center" FontSize="25" Grid.ColumnSpan="2"> 
-            Customize Candlehearth Coffee
+            Customize Vokun Salad 
         </TextBlock>
         <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="ingredientsList" Grid.Row="1">
-            <CheckBox>
-                Room for cream 
-            </CheckBox>
-            <CheckBox>
-                Decaf 
-            </CheckBox>
-        </ListView>  
-        <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="sizeList" Grid.Row="2">
             <RadioButton>
-                Small  
+                Small
             </RadioButton>
             <RadioButton>
-                Medium 
-            </RadioButton> 
+                Medium
+            </RadioButton>
             <RadioButton>
-                Large 
+                Large
             </RadioButton>
         </ListView>
         <Button Grid.Column="1" Grid.Row="1" Height="60" Width="200" FontSize="30">

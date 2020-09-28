@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CandlehearthCoffeeScreen.xaml
+    /// Interaction logic for FriedMiraakScreen.xaml
     /// </summary>
-    public partial class CandlehearthCoffeeScreen : UserControl
+    public partial class FriedMiraakScreen : UserControl
     {
 
         private MainWindow mainWindow
@@ -31,16 +31,16 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public CandlehearthCoffeeScreen()
+        public FriedMiraakScreen()
         {
             InitializeComponent();
-            backButton.Click += DrinkScreen;
+            backButton.Click += SideScreen;
 
         }
 
-        void DrinkScreen(object sender, RoutedEventArgs e)
+        void SideScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new DrinkMenu();
+            mainWindow.screenBorder.Child = new SideMenu();
         }
 
     }
