@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: WarriorWaterScreen.xaml.cs 
+ * Purpose: Class used to represent Warrior Water Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,11 +19,10 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for DragonbornWaffleFriesScreen.xaml
+    /// Interaction logic for WarriorWaterScreen.xaml
     /// </summary>
-    public partial class DragonbornWaffleFriesScreen : UserControl
+    public partial class WarriorWaterScreen : UserControl
     {
-
         private MainWindow mainWindow
         {
             get
@@ -31,15 +35,16 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public DragonbornWaffleFriesScreen()
+        public WarriorWaterScreen()
         {
             InitializeComponent();
-            backButton.Click += SideScreen;
+            backButton.Click += DrinkScreen;
 
         }
-        void SideScreen(object sender, RoutedEventArgs e)
+
+        void DrinkScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new SideMenu();
+            mainWindow.screenBorder.Child = new DrinkMenu();
         }
     }
 }

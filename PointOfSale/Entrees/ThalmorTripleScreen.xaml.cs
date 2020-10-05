@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: ThalmorTripleScreen.xaml.cs 
+ * Purpose: Class used to represent Thalmor Triple Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,11 +19,10 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CandlehearthCoffeeScreen.xaml
+    /// Interaction logic for ThalmorTripleScreen.xaml
     /// </summary>
-    public partial class CandlehearthCoffeeScreen : UserControl
+    public partial class ThalmorTripleScreen : UserControl
     {
-
         private MainWindow mainWindow
         {
             get
@@ -31,17 +35,14 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public CandlehearthCoffeeScreen()
+        public ThalmorTripleScreen()
         {
             InitializeComponent();
-            backButton.Click += DrinkScreen;
-
+            backButton.Click += EntreeScreen; 
         }
-
-        void DrinkScreen(object sender, RoutedEventArgs e)
+        void EntreeScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new DrinkMenu();
+            mainWindow.screenBorder.Child = new EntreeMenu();
         }
-
     }
 }

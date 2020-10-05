@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: EntreeMenu.xaml.cs 
+ * Purpose: Class used to represent Entree Menu and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

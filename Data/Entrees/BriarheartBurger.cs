@@ -3,13 +3,18 @@
  * Purpose: Class used to represent Briarheart Burger and its properties 
  */ 
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Text; 
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class BriarheartBurger : Entree, IOrderItem
+    public class BriarheartBurger : Entree, INotifyPropertyChanged 
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged; 
         /// <summary>
         /// Gets burger price 
         /// </summary>
@@ -34,7 +39,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold ketchup");
                 else specialInstructions.Remove("Hold ketchup"); 
-                ketchup = value; 
+                ketchup = value;
+                OnPropertyChanged("Ketchup"); 
             }
         }
         /// <summary>
@@ -53,6 +59,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold bun");
                 else specialInstructions.Remove("Hold bun");
                 bun = value;
+                OnPropertyChanged("Bun");
             }
         }
         /// <summary>
@@ -70,6 +77,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold mustard");
                 else specialInstructions.Remove("Hold mustard");
                 mustard = value;
+                OnPropertyChanged("Mustard");
             }
         } 
         /// <summary>
@@ -86,7 +94,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold pickle");
                 else specialInstructions.Remove("Hold pickle");
-                pickle = value; 
+                pickle = value;
+                OnPropertyChanged("Pickle");
             }
         }
         /// <summary>
@@ -103,7 +112,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold cheese");
                 else specialInstructions.Remove("Hold cheese");
-                cheese = value; 
+                cheese = value;
+                OnPropertyChanged("Cheese");
             }
         } 
         /// <summary>
@@ -122,5 +132,13 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Briarheart Burger"; 
         }
+        /// <summary>
+        /// Method to incoke PropertyChanged even handler 
+        /// </summary>
+        /// <param name="property"></param>
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property)); 
+        } 
     }
 }

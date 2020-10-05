@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: SailorSodaScreen.xaml.cs 
+ * Purpose: Class used to represent Sailor Soda Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,9 +19,9 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for SmokehouseSkeletonScreen.xaml
+    /// Interaction logic for SailorSodaScreen.xaml
     /// </summary>
-    public partial class SmokehouseSkeletonScreen : UserControl
+    public partial class SailorSodaScreen : UserControl
     {
         private MainWindow mainWindow
         {
@@ -30,15 +35,15 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public SmokehouseSkeletonScreen()
+        public SailorSodaScreen()
         {
             InitializeComponent();
-            backButton.Click += EntreeScreen;
-
+            backButton.Click += DrinkScreen;
         }
-        void EntreeScreen(object sender, RoutedEventArgs e)
+
+        void DrinkScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new EntreeMenu();
+            mainWindow.screenBorder.Child = new DrinkMenu();
         }
     }
 }

@@ -5,6 +5,7 @@
 
 using BleakwindBuffet.Data.Enums;
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,12 +13,12 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class MarkarthMilk : Drink, IOrderItem 
+    public class MarkarthMilk : Drink, INotifyPropertyChanged
     {
         /// <summary>
-        /// gets and sets the size of the drink 
-        /// </summary> 
-        private Size size = Size.Small; 
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged; 
 
         /// <summary>
         /// gets the price based on the size of the drink 
@@ -66,6 +67,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value) specialInstructions.Add("Add ice");
                 else specialInstructions.Remove("Add ice");
                 ice = value;
+                OnPropertyChanged("Ice");
             }
         }
         /// <summary>
@@ -83,6 +85,6 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             return $"{Size} Markarth Milk";
-        } 
+        }
     }
 }

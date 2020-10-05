@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: MarkarthMilkScreen.xaml.cs 
+ * Purpose: Class used to represent Markarth Milk Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,9 +19,9 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for AretinoAppleJuiceScreen.xaml
+    /// Interaction logic for MarkarthMilkScreen.xaml
     /// </summary>
-    public partial class AretinoAppleJuiceScreen : UserControl
+    public partial class MarkarthMilkScreen : UserControl
     {
         private MainWindow mainWindow
         {
@@ -30,7 +35,7 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public AretinoAppleJuiceScreen()
+        public MarkarthMilkScreen()
         {
             InitializeComponent();
             backButton.Click += DrinkScreen;

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: AretinoAppleJuice.xaml.cs 
+ * Purpose: Class used to represent Aretino Apple Juice Screen and its properties 
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,11 +18,10 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MadOtarGritsScreen.xaml
+    /// Interaction logic for AretinoAppleJuiceScreen.xaml
     /// </summary>
-    public partial class MadOtarGritsScreen : UserControl
+    public partial class AretinoAppleJuiceScreen : UserControl
     {
-
         private MainWindow mainWindow
         {
             get
@@ -31,17 +34,15 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public MadOtarGritsScreen()
+        public AretinoAppleJuiceScreen()
         {
             InitializeComponent();
-            backButton.Click += SideScreen;
-
+            backButton.Click += DrinkScreen;
         }
 
-        void SideScreen(object sender, RoutedEventArgs e)
+        void DrinkScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new SideMenu();
+            mainWindow.screenBorder.Child = new DrinkMenu();
         }
-
     }
 }

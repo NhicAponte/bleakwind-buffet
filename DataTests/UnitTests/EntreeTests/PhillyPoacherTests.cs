@@ -7,7 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
-
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -17,16 +17,57 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class PhillyPoacherTests
     {
         [Fact]
-        public void ShouldBeMenuItem()
+        public void ShouldImplementCorrectInterfaces()
         {
             PhillyPoacher p = new PhillyPoacher();
             Assert.IsAssignableFrom<IOrderItem>(p);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(p);
         }
         [Fact]
         public void ShouldBeAnEntree()
         {
             PhillyPoacher p = new PhillyPoacher();
             Assert.IsAssignableFrom<Entree>(p);
+        }
+
+        [Fact]
+        public void ChangingSirloinNotifiesSirloinProperty()
+        {
+            PhillyPoacher p = new PhillyPoacher();
+            Assert.PropertyChanged(p, "Sirloin", () =>
+            {
+                p.Sirloin = true;
+            });
+            Assert.PropertyChanged(p, "Sirloin", () =>
+            {
+                p.Sirloin = false;
+            });
+        }
+        [Fact]
+        public void ChangingOnionNotifiesOnionProperty()
+        {
+            PhillyPoacher p = new PhillyPoacher();
+            Assert.PropertyChanged(p, "Onion", () =>
+            {
+                p.Onion = true;
+            });
+            Assert.PropertyChanged(p, "Onion", () =>
+            {
+                p.Onion = false;
+            });
+        }
+        [Fact]
+        public void ChangingRollNotifiesRollProperty()
+        {
+            PhillyPoacher p = new PhillyPoacher();
+            Assert.PropertyChanged(p, "Roll", () =>
+            {
+                p.Roll = true;
+            });
+            Assert.PropertyChanged(p, "Roll", () =>
+            {
+                p.Roll = false;
+            });
         }
         [Fact]
         public void ShouldInlcudeSirloinByDefault()

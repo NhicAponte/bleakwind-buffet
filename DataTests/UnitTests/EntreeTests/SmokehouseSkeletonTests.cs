@@ -7,7 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
-
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -17,10 +17,64 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class SmokehouseSkeletonTests
     {
         [Fact]
-        public void ShouldBeMenuItem()
+        public void ShouldImplementCorrectInterfaces()
         {
             SmokehouseSkeleton s = new SmokehouseSkeleton();
             Assert.IsAssignableFrom<IOrderItem>(s);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(s);
+        }
+
+        [Fact]
+        public void ChangingSausageLinkNotifiesSausageLinkProperty()
+        {
+            SmokehouseSkeleton s = new SmokehouseSkeleton();
+            Assert.PropertyChanged(s, "Sausage Link", () =>
+            {
+                s.SausageLink = true;
+            });
+            Assert.PropertyChanged(s, "Sausage Link", () =>
+            {
+                s.SausageLink = false;
+            });
+        }
+        [Fact]
+        public void ChangingEggNotifiesEggProperty()
+        {
+            SmokehouseSkeleton s = new SmokehouseSkeleton();
+            Assert.PropertyChanged(s, "Egg", () =>
+            {
+                s.Egg = true;
+            });
+            Assert.PropertyChanged(s, "Egg", () =>
+            {
+                s.Egg = false;
+            });
+        }
+        [Fact]
+        public void ChangingHashbrownsNotifiesHashbrownsProperty()
+        {
+            SmokehouseSkeleton s = new SmokehouseSkeleton();
+            Assert.PropertyChanged(s, "Hashbrowns", () =>
+            {
+                s.HashBrowns = true;
+            });
+            Assert.PropertyChanged(s, "Hashbrowns", () =>
+            {
+                s.HashBrowns = false;
+            });
+        }
+        [Fact]
+        public void ChangingPancakesNotifiesPancakesProperty()
+        {
+            SmokehouseSkeleton s = new SmokehouseSkeleton();
+            Assert.PropertyChanged(s, "Pancakes", () =>
+            {
+                s.Pancake = true;
+            });
+            Assert.PropertyChanged(s, "Pancakes", () =>
+            {
+                s.Pancake = false;
+            });
         }
         [Fact]
         public void ShouldBeAnEntree()

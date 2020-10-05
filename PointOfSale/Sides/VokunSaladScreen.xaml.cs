@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: VokunSaladScreen.xaml.cs 
+ * Purpose: Class used to representVokun Salad Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,10 +19,11 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MarkarthMilkScreen.xaml
+    /// Interaction logic for VokunSaladScreen.xaml
     /// </summary>
-    public partial class MarkarthMilkScreen : UserControl
+    public partial class VokunSaladScreen : UserControl
     {
+
         private MainWindow mainWindow
         {
             get
@@ -30,15 +36,17 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public MarkarthMilkScreen()
+        public VokunSaladScreen()
         {
             InitializeComponent();
-            backButton.Click += DrinkScreen;
+            backButton.Click += SideScreen;
+
         }
 
-        void DrinkScreen(object sender, RoutedEventArgs e)
+        void SideScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new DrinkMenu();
+            mainWindow.screenBorder.Child = new SideMenu();
         }
+
     }
 }

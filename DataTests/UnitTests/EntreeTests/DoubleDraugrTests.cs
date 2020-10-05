@@ -6,6 +6,7 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using System.ComponentModel;  
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -15,16 +16,123 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class DoubleDraugrTests
     {
         [Fact]
-        public void ShouldBeMenuItem()
+        public void ShouldImplementCorrectInterfaces()
         {
             DoubleDraugr d = new DoubleDraugr();
             Assert.IsAssignableFrom<IOrderItem>(d);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(d);
         }
         [Fact]
         public void ShouldBeAnEntree()
         {
             DoubleDraugr d = new DoubleDraugr();
             Assert.IsAssignableFrom<Entree>(d);
+        }
+
+        [Fact]
+        public void ChangingBunNotifiesBunProperty()
+        {
+            DoubleDraugr d = new DoubleDraugr();
+            Assert.PropertyChanged(d, "Bun", () =>
+            {
+                d.Bun = true;
+            });
+            Assert.PropertyChanged(d, "Bun", () =>
+            {
+                d.Bun = false;
+            });
+        }
+        [Fact]
+        public void ChangingCheeseNotifiesCheeseProperty()
+        {
+            DoubleDraugr d = new DoubleDraugr();
+            Assert.PropertyChanged(d, "Cheese", () =>
+            {
+                d.Cheese = true;
+            });
+            Assert.PropertyChanged(d, "Cheese", () =>
+            {
+                d.Cheese = false;
+            });
+        }
+        [Fact]
+        public void ChangingPickleNotifiesPickleProperty()
+        {
+            DoubleDraugr d = new DoubleDraugr();
+            Assert.PropertyChanged(d, "Pickle", () =>
+            {
+                d.Pickle = true;
+            });
+            Assert.PropertyChanged(d, "Pickle", () =>
+            {
+                d.Pickle = false;
+            });
+        }
+        [Fact]
+        public void ChangingMustardNotifiesMustardProperty()
+        {
+            DoubleDraugr d = new DoubleDraugr();
+            Assert.PropertyChanged(d, "Mustard", () =>
+            {
+                d.Mustard = true;
+            });
+            Assert.PropertyChanged(d, "Mustard", () =>
+            {
+                d.Mustard = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingKetchupNotifiesKetchupProperty()
+        {
+            DoubleDraugr d = new DoubleDraugr();
+            Assert.PropertyChanged(d, "Ketchup", () =>
+            {
+                d.Ketchup = true;
+            });
+            Assert.PropertyChanged(d, "Ketchup", () =>
+            {
+                d.Ketchup = false;
+            });
+        }
+        [Fact]
+        public void ChangingMayoNotifiesMayoProperty()
+        {
+            DoubleDraugr d = new DoubleDraugr();
+            Assert.PropertyChanged(d, "Mayo", () =>
+            {
+                d.Mayo = true;
+            });
+            Assert.PropertyChanged(d, "Mayo", () =>
+            {
+                d.Mayo = false;
+            });
+        }
+        [Fact]
+        public void ChangingLettuceNotifiesLettuceProperty()
+        {
+            DoubleDraugr d = new DoubleDraugr();
+            Assert.PropertyChanged(d, "Lettuce", () =>
+            {
+                d.Lettuce = true;
+            });
+            Assert.PropertyChanged(d, "Lettuce", () =>
+            {
+                d.Lettuce = false;
+            });
+        }
+        [Fact]
+        public void ChangingTomatoNotifiesTomatoProperty()
+        {
+            DoubleDraugr d = new DoubleDraugr();
+            Assert.PropertyChanged(d, "Tomato", () =>
+            {
+                d.Tomato = true;
+            });
+            Assert.PropertyChanged(d, "Tomato", () =>
+            {
+                d.Tomato = false;
+            });
         }
         [Fact]
         public void ShouldIncludeBunByDefault()

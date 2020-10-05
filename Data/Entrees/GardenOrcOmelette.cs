@@ -4,13 +4,18 @@
  */
 
 using System;
+using System.ComponentModel; 
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette : Entree, IOrderItem 
+    public class GardenOrcOmelette : Entree, INotifyPropertyChanged 
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// gets price 
         /// </summary>
@@ -34,6 +39,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold broccoli");
                 else specialInstructions.Remove("Hold broccoli");
                 broccoli = value;
+                OnPropertyChanged("Broccoli");
             }
         }
         /// <summary>
@@ -51,6 +57,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold mushrooms");
                 else specialInstructions.Remove("Hold mushrooms");
                 mushrooms = value;
+                OnPropertyChanged("Mushrooms");
             }
         }
         /// <summary>
@@ -68,6 +75,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold tomato");
                 else specialInstructions.Remove("Hold tomato");
                 tomato = value;
+                OnPropertyChanged("Tomato");
             }
         }
         /// <summary>
@@ -85,6 +93,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold cheddar");
                 else specialInstructions.Remove("Hold cheddar");
                 cheddar = value;
+                OnPropertyChanged("Cheddar");
             }
         }
         /// <summary>
@@ -102,6 +111,14 @@ namespace BleakwindBuffet.Data.Entrees
         public override string ToString()
         {
             return "Garden Orc Omelette";
+        }
+        /// <summary>
+        /// Method to incoke PropertyChanged even handler 
+        /// </summary>
+        /// <param name="property"></param>
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }
 }

@@ -6,12 +6,18 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class VokunSalad : Side, IOrderItem 
+    public class VokunSalad : Side, INotifyPropertyChanged 
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private Size size = Size.Small; 
         /// <summary>
         /// gets and sets value of size 

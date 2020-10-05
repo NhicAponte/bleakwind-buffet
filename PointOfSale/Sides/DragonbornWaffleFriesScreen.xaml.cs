@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: DragonbornWaffleFriesScreen.xaml.cs 
+ * Purpose: Class used to represent Dragonborn Waffle Fries Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,10 +19,11 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for PhillyPoacherScreen.xaml
+    /// Interaction logic for DragonbornWaffleFriesScreen.xaml
     /// </summary>
-    public partial class PhillyPoacherScreen : UserControl
+    public partial class DragonbornWaffleFriesScreen : UserControl
     {
+
         private MainWindow mainWindow
         {
             get
@@ -30,15 +36,15 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public PhillyPoacherScreen()
+        public DragonbornWaffleFriesScreen()
         {
             InitializeComponent();
-            backButton.Click += EntreeScreen;
+            backButton.Click += SideScreen;
 
         }
-        void EntreeScreen(object sender, RoutedEventArgs e)
+        void SideScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new EntreeMenu();
+            mainWindow.screenBorder.Child = new SideMenu();
         }
     }
 }

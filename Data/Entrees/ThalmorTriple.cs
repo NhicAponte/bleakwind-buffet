@@ -4,12 +4,17 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThalmorTriple : Entree, IOrderItem 
+    public class ThalmorTriple : Entree, INotifyPropertyChanged 
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// gets burger price 
         /// </summary>
@@ -34,6 +39,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold bun");
                 else specialInstructions.Remove("Hold bun");
                 bun = value;
+                OnPropertyChanged("Bun");
             }
         }
         /// <summary>
@@ -51,6 +57,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold ketchup");
                 else specialInstructions.Remove("Hold ketchup");
                 ketchup = value;
+                OnPropertyChanged("Ketchup");
             }
         }
         /// <summary>
@@ -68,6 +75,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold mustard");
                 else specialInstructions.Remove("Hold mustard");
                 mustard = value;
+                OnPropertyChanged("Mustard");
             }
         }
         /// <summary>
@@ -85,6 +93,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold pickle");
                 else specialInstructions.Remove("Hold pickle");
                 pickle = value;
+                OnPropertyChanged("Pickle");
             }
         }
         /// <summary>
@@ -102,6 +111,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold cheese");
                 else specialInstructions.Remove("Hold cheese");
                 cheese = value;
+                OnPropertyChanged("Cheese");
             }
         }
         /// <summary>
@@ -119,6 +129,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold tomato");
                 else specialInstructions.Remove("Hold tomato");
                 tomato = value;
+                OnPropertyChanged("Tomato"); 
             }
         }
         /// <summary>
@@ -136,6 +147,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold lettuce");
                 else specialInstructions.Remove("Hold lettuce");
                 lettuce = value;
+                OnPropertyChanged("Lettuce"); 
             }
         }
         /// <summary>
@@ -153,6 +165,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold mayo");
                 else specialInstructions.Remove("Hold mayo");
                 mayo = value;
+                OnPropertyChanged("Mayo");
             }
         }
         /// <summary>
@@ -169,7 +182,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold bacon");
                 else specialInstructions.Remove("Hold bacon");
-                bacon = value; 
+                bacon = value;
+                OnPropertyChanged("Bacon");
             }
         }
         /// <summary>
@@ -186,7 +200,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold egg");
                 else specialInstructions.Remove("Hold egg");
-                egg = value; 
+                egg = value;
+                OnPropertyChanged("Egg");
             }
         }
         /// <summary>
@@ -204,6 +219,14 @@ namespace BleakwindBuffet.Data.Entrees
         public override string ToString() 
         {
             return "Thalmor Triple"; 
+        }
+        /// <summary>
+        /// Method to incoke PropertyChanged even handler 
+        /// </summary>
+        /// <param name="property"></param>
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }
 }

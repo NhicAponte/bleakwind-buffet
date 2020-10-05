@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: GardenOrcOmeletteScreen.xaml.cs 
+ * Purpose: Class used to represent Garden Orc Omelette Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,9 +19,9 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for ThugsTBoneScreen.xaml
+    /// Interaction logic for GardenOrcOmeletteScreen.xaml
     /// </summary>
-    public partial class ThugsTBoneScreen : UserControl
+    public partial class GardenOrcOmeletteScreen : UserControl
     {
         private MainWindow mainWindow
         {
@@ -30,7 +35,7 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public ThugsTBoneScreen()
+        public GardenOrcOmeletteScreen()
         {
             InitializeComponent();
             backButton.Click += EntreeScreen;

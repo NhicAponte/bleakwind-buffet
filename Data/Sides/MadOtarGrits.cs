@@ -5,12 +5,17 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class MadOtarGrits : Side, IOrderItem
+    public class MadOtarGrits : Side, INotifyPropertyChanged 
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// gets and sets size 
         /// </summary>

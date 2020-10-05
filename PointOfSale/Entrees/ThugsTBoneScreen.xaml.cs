@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: ThugsTBoneScreen.xaml.cs 
+ * Purpose: Class used to represent Thugs T-Bone Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,9 +19,9 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for DoubleDraugrScreen.xaml
+    /// Interaction logic for ThugsTBoneScreen.xaml
     /// </summary>
-    public partial class DoubleDraugrScreen : UserControl
+    public partial class ThugsTBoneScreen : UserControl
     {
         private MainWindow mainWindow
         {
@@ -30,10 +35,11 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public DoubleDraugrScreen()
+        public ThugsTBoneScreen()
         {
             InitializeComponent();
-            backButton.Click += EntreeScreen; 
+            backButton.Click += EntreeScreen;
+
         }
         void EntreeScreen(object sender, RoutedEventArgs e)
         {

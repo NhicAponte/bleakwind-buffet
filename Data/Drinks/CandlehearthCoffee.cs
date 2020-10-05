@@ -6,13 +6,18 @@
 
 using BleakwindBuffet.Data.Enums;
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee : Drink, IOrderItem
+    public class CandlehearthCoffee : Drink, INotifyPropertyChanged 
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
@@ -83,6 +88,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value) specialInstructions.Add("Add ice");
                 else specialInstructions.Remove("Add ice");
                 ice = value;
+                OnPropertyChanged("Ice"); 
             }
         }
         /// <summary>
@@ -100,6 +106,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value) specialInstructions.Add("Leave room for cream");
                 else specialInstructions.Remove("Leave room for cream");
                 roomForCream = value;
+                OnPropertyChanged("Room for cream"); 
             }
         }
         /// <summary>
@@ -117,6 +124,7 @@ namespace BleakwindBuffet.Data.Drinks
                 //if (!value) specialInstructions.Add("Decaf");
                 //else specialInstructions.Remove("Decaf");
                 decaf = value;
+                OnPropertyChanged("Decaf"); 
             }
         }
         /// <summary>

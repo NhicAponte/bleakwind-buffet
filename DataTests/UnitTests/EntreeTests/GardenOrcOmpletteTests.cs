@@ -7,6 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -16,16 +17,70 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
-        public void ShouldBeMenuItem()
+        public void ShouldImplementCorrectInterfaces()
         {
             GardenOrcOmelette g = new GardenOrcOmelette();
             Assert.IsAssignableFrom<IOrderItem>(g);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(g);
         }
         [Fact]
         public void ShouldBeAnEntree()
         {
             GardenOrcOmelette g = new GardenOrcOmelette();
             Assert.IsAssignableFrom<Entree>(g);
+        }
+
+        [Fact]
+        public void ChangingTomatoNotifiesTomatoProperty()
+        {
+            GardenOrcOmelette g = new GardenOrcOmelette();
+            Assert.PropertyChanged(g, "Tomato", () =>
+            {
+                g.Tomato = true;
+            });
+            Assert.PropertyChanged(g, "Tomato", () =>
+            {
+                g.Tomato = false;
+            });
+        }
+        [Fact]
+        public void ChangingCheddarNotifiesCheddarProperty()
+        {
+            GardenOrcOmelette g = new GardenOrcOmelette();
+            Assert.PropertyChanged(g, "Cheddar", () =>
+            {
+                g.Cheddar = true;
+            });
+            Assert.PropertyChanged(g, "Cheddar", () =>
+            {
+                g.Cheddar = false;
+            });
+        }
+        [Fact]
+        public void ChangingMushroomsNotifiesMushroomsProperty()
+        {
+            GardenOrcOmelette g = new GardenOrcOmelette();
+            Assert.PropertyChanged(g, "Mushrooms", () =>
+            {
+                g.Mushrooms = true;
+            });
+            Assert.PropertyChanged(g, "Mushrooms", () =>
+            {
+                g.Mushrooms = false;
+            });
+        }
+        [Fact]
+        public void ChangingBroccoliNotifiesBroccoliProperty()
+        {
+            GardenOrcOmelette g = new GardenOrcOmelette();
+            Assert.PropertyChanged(g, "Broccoli", () =>
+            {
+                g.Broccoli = true;
+            });
+            Assert.PropertyChanged(g, "Broccoli", () =>
+            {
+                g.Broccoli = false;
+            });
         }
         [Fact]
         public void ShouldInlcudeBroccoliByDefault()

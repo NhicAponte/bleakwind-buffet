@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Sides;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: SideMenu.xaml.cs 
+ * Purpose: Class used to represent Side Menu screen and its properties 
+ */
+
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;

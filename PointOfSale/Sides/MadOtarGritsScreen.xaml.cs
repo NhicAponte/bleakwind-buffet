@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: MadOtarGritsScreen.xaml.cs 
+ * Purpose: Class used to represent Mad Otar Grits Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,10 +19,11 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for GardenOrcOmeletteScreen.xaml
+    /// Interaction logic for MadOtarGritsScreen.xaml
     /// </summary>
-    public partial class GardenOrcOmeletteScreen : UserControl
+    public partial class MadOtarGritsScreen : UserControl
     {
+
         private MainWindow mainWindow
         {
             get
@@ -30,15 +36,17 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public GardenOrcOmeletteScreen()
+        public MadOtarGritsScreen()
         {
             InitializeComponent();
-            backButton.Click += EntreeScreen;
+            backButton.Click += SideScreen;
 
         }
-        void EntreeScreen(object sender, RoutedEventArgs e)
+
+        void SideScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new EntreeMenu();
+            mainWindow.screenBorder.Child = new SideMenu();
         }
+
     }
 }

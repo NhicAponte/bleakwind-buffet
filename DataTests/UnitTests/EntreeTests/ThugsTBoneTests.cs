@@ -6,6 +6,7 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
+using System.ComponentModel; 
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -15,10 +16,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThugsTBoneTests
     {
         [Fact]
-        public void ShouldBeMenuItem()
+        public void ShouldImplementCorrectInterfaces()
         {
             ThugsTBone h = new ThugsTBone();
             Assert.IsAssignableFrom<IOrderItem>(h);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(h);
         }
         [Fact]
         public void ShouldBeAnEntree()

@@ -5,13 +5,18 @@
 
 using BleakwindBuffet.Data.Enums;
 using System;
+using System.ComponentModel; 
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class WarriorWater : Drink, IOrderItem
+    public class WarriorWater : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        //public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
@@ -63,6 +68,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (!value) specialInstructions.Add("Hold ice");
                 else specialInstructions.Remove("Hold ice");
                 ice = value;
+                OnPropertyChanged("Ice");
             }
         } 
         /// <summary>
@@ -80,6 +86,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value) specialInstructions.Add("Add lemon");
                 else specialInstructions.Remove("Add lemon");
                 lemon = value;
+                OnPropertyChanged("Lemon");
             }
         }
         /// <summary>

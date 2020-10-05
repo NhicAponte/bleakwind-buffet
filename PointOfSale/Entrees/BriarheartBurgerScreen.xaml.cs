@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: BriarheartBurgerScreen.xaml.cs 
+ * Purpose: Class used to represent Briarheart Burger Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale
 {
@@ -40,5 +46,11 @@ namespace PointOfSale
         {
             mainWindow.screenBorder.Child = new EntreeMenu();
         }
+        /*
+        void AddItem(object sender, RoutedEventArgs e)
+        {
+            var b = new BriarheartBurger();
+            BriarheartBurgerScreen.DataContextProperty = b; 
+        }*/
     }
 }

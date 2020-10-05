@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: DoubleDraugrScreen.xaml.cs 
+ * Purpose: Class used to represent Double Draugr Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,11 +19,10 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for FriedMiraakScreen.xaml
+    /// Interaction logic for DoubleDraugrScreen.xaml
     /// </summary>
-    public partial class FriedMiraakScreen : UserControl
+    public partial class DoubleDraugrScreen : UserControl
     {
-
         private MainWindow mainWindow
         {
             get
@@ -31,17 +35,14 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public FriedMiraakScreen()
+        public DoubleDraugrScreen()
         {
             InitializeComponent();
-            backButton.Click += SideScreen;
-
+            backButton.Click += EntreeScreen; 
         }
-
-        void SideScreen(object sender, RoutedEventArgs e)
+        void EntreeScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new SideMenu();
+            mainWindow.screenBorder.Child = new EntreeMenu();
         }
-
     }
 }

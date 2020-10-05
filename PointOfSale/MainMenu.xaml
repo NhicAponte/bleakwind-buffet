@@ -6,17 +6,15 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="500">
-    <Grid>
-        <ListView HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">
-            <Button Name="entreeButton">
-                Entrees
-            </Button>
-            <Button Name="sideButton">
-                Sides
-            </Button>
-            <Button Name="drinkButton">
-                Drinks
-            </Button>
-        </ListView>   
-    </Grid>
+    <ListView HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">
+        <Button Name="entreeButton">
+            Entrees
+        </Button>
+        <Button Name="sideButton">
+            Sides
+        </Button>
+        <Button Name="drinkButton">
+            Drinks
+        </Button>
+    </ListView>   
 </UserControl>

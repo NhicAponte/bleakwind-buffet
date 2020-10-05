@@ -4,14 +4,19 @@
  */
 
 using System;
+using System.ComponentModel; 
 using System.Collections.Generic;
 using System.Text;
 
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class DoubleDraugr : Entree, IOrderItem 
+    public class DoubleDraugr : Entree, INotifyPropertyChanged 
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// gets burger price 
         /// </summary>
@@ -35,7 +40,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold bun");
                 else specialInstructions.Remove("Hold bun");
-                bun = value; 
+                bun = value;
+                OnPropertyChanged("Bun");
             }
         }
         /// <summary>
@@ -52,7 +58,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold ketchup");
                 else specialInstructions.Remove("Hold ketchup");
-                ketchup = value; 
+                ketchup = value;
+                OnPropertyChanged("Ketchup");
             }
         }
         /// <summary>
@@ -69,7 +76,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold mustard");
                 else specialInstructions.Remove("Hold mustard");
-                mustard = value; 
+                mustard = value;
+                OnPropertyChanged("Mustard");
             }
         }
         /// <summary>
@@ -86,7 +94,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold pickle");
                 else specialInstructions.Remove("Hold pickle");
-                pickle = value; 
+                pickle = value;
+                OnPropertyChanged("Pickle");
             }
         }
         /// <summary>
@@ -103,7 +112,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold cheese");
                 else specialInstructions.Remove("Hold cheese");
-                cheese = value; 
+                cheese = value;
+                OnPropertyChanged("Cheese");
             }
         }
         /// <summary>
@@ -120,7 +130,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold tomato");
                 else specialInstructions.Remove("Hold tomato");
-                tomato = value; 
+                tomato = value;
+                OnPropertyChanged("Tomato");
             }
         }
         /// <summary>
@@ -137,7 +148,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold lettuce");
                 else specialInstructions.Remove("Hold lettuce");
-                lettuce = value; 
+                lettuce = value;
+                OnPropertyChanged("Lettuce");
             }
         }
         /// <summary>
@@ -154,7 +166,8 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 if (!value) specialInstructions.Add("Hold mayo");
                 else specialInstructions.Remove("Hold mayo");
-                mayo = value; 
+                mayo = value;
+                OnPropertyChanged("Mayo");
             }
         }
         /// <summary>
@@ -172,6 +185,14 @@ namespace BleakwindBuffet.Data.Entrees
         public override string ToString()
         {
             return "Double Draugr"; 
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="property"></param>
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }
 }

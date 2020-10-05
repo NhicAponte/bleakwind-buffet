@@ -3,13 +3,18 @@
  * Purpose: Class used to represent PhillyPoacher and its properties 
  */
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class PhillyPoacher : Entree, IOrderItem 
+    public class PhillyPoacher : Entree, INotifyPropertyChanged 
     {
+        /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// gets price 
         /// </summary>
@@ -33,6 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold sirloin");
                 else specialInstructions.Remove("Hold sirloin");
                 sirloin = value;
+                OnPropertyChanged("Sirloin");
             }
         }
         /// <summary>
@@ -50,6 +56,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold onions");
                 else specialInstructions.Remove("Hold onions");
                 onion = value;
+                OnPropertyChanged("Onion");
             }
         }
         /// <summary>
@@ -67,6 +74,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold roll");
                 else specialInstructions.Remove("Hold roll");
                 roll = value;
+                OnPropertyChanged("Roll");
             }
         }
         /// <summary>
@@ -85,6 +93,9 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Philly Poacher";
         }
-
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property)); 
+        }
     }
 }

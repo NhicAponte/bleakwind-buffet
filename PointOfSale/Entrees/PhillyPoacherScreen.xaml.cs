@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: PhillyPoacherScreen.xaml.cs 
+ * Purpose: Class used to represent Philly Poacher Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,9 +19,9 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for WarriorWaterScreen.xaml
+    /// Interaction logic for PhillyPoacherScreen.xaml
     /// </summary>
-    public partial class WarriorWaterScreen : UserControl
+    public partial class PhillyPoacherScreen : UserControl
     {
         private MainWindow mainWindow
         {
@@ -30,16 +35,15 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public WarriorWaterScreen()
+        public PhillyPoacherScreen()
         {
             InitializeComponent();
-            backButton.Click += DrinkScreen;
+            backButton.Click += EntreeScreen;
 
         }
-
-        void DrinkScreen(object sender, RoutedEventArgs e)
+        void EntreeScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new DrinkMenu();
+            mainWindow.screenBorder.Child = new EntreeMenu();
         }
     }
 }

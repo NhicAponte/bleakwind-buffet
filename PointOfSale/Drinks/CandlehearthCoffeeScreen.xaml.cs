@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: CandlehearthCoffeeScreen.xaml.cs 
+ * Purpose: Class used to represent Candlehearth Coffee Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,10 +19,11 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for ThalmorTripleScreen.xaml
+    /// Interaction logic for CandlehearthCoffeeScreen.xaml
     /// </summary>
-    public partial class ThalmorTripleScreen : UserControl
+    public partial class CandlehearthCoffeeScreen : UserControl
     {
+
         private MainWindow mainWindow
         {
             get
@@ -30,14 +36,17 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public ThalmorTripleScreen()
+        public CandlehearthCoffeeScreen()
         {
             InitializeComponent();
-            backButton.Click += EntreeScreen; 
+            backButton.Click += DrinkScreen;
+
         }
-        void EntreeScreen(object sender, RoutedEventArgs e)
+
+        void DrinkScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new EntreeMenu();
+            mainWindow.screenBorder.Child = new DrinkMenu();
         }
+
     }
 }

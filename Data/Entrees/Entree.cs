@@ -1,6 +1,7 @@
 ﻿using BleakwindBuffet.Data.Enums; 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -24,6 +25,6 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Special instructions to prepare entree 
         /// </summary>
-        public abstract List<string> SpecialInstructions { get; } 
+        public abstract List<string> SpecialInstructions { get; }
     }
 }

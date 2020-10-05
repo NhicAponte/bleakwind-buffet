@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: FriedMiraakScreen.xaml.cs 
+ * Purpose: Class used to represent Fried Miraak Screen and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,9 +19,9 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for VokunSaladScreen.xaml
+    /// Interaction logic for FriedMiraakScreen.xaml
     /// </summary>
-    public partial class VokunSaladScreen : UserControl
+    public partial class FriedMiraakScreen : UserControl
     {
 
         private MainWindow mainWindow
@@ -31,7 +36,7 @@ namespace PointOfSale
                 return (MainWindow)parent;
             }
         }
-        public VokunSaladScreen()
+        public FriedMiraakScreen()
         {
             InitializeComponent();
             backButton.Click += SideScreen;

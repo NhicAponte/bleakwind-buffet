@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -20,13 +21,28 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeADrink()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice(); 
-            Assert.IsAssignableFrom<Drink>(aj); 
+            Assert.IsAssignableFrom<Drink>(aj);
         }
         [Fact] 
-        public void ShouldBeMenuItem()
+        public void ShouldImplementCorrectInterfaces()
         {
             AretinoAppleJuice aj = new AretinoAppleJuice(); 
             Assert.IsAssignableFrom<IOrderItem>(aj); 
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(aj); 
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = false;
+            });
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = true;
+            }); 
         }
 
         [Fact]

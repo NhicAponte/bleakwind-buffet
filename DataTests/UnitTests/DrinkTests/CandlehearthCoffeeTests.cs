@@ -7,6 +7,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -20,12 +21,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             CandlehearthCoffee cc = new CandlehearthCoffee();
             Assert.IsAssignableFrom<IOrderItem>(cc);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(cc);
         }
         [Fact]
         public void ShouldBeADrink()
         {
             CandlehearthCoffee cc = new CandlehearthCoffee();
             Assert.IsAssignableFrom<Drink>(cc);
+        }
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            Assert.PropertyChanged(cc, "Ice", () =>
+            {
+                cc.Ice = true;
+            });
+            Assert.PropertyChanged(cc, "Ice", () =>
+            {
+                cc.Ice = false;
+            });
         }
         [Fact]
         public void ShouldNotIncludeIceByDefault()

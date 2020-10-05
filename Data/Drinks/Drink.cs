@@ -1,5 +1,6 @@
 ﻿using BleakwindBuffet.Data.Enums;
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,15 +9,34 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A base class representing common properties of drinks 
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged 
     {
         //virtual can't be overriden but that's okay for size: can use a private backing variable  
         //abstract can be overriden so we use that since each 
         //drink has it's own price and calories 
         /// <summary>
+        /// event handler from INotifyPropertyChanged interface 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size = Size.Small;
+        /// <summary>
         /// size of drink 
         /// </summary>
-        public virtual Size Size { get; set; } 
+        public virtual Size Size
+        {
+            get
+            {
+                return size;
+            }
+            set
+            {
+                size = value;
+                OnPropertyChanged("Size");
+                OnPropertyChanged("Price");
+                OnPropertyChanged("Calories");
+            }
+        }
         /// <summary>
         /// price of drink 
         /// </summary>
@@ -31,6 +51,15 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Special instructions to prepare drink 
         /// </summary>
-        public abstract List<string> SpecialInstructions { get; } 
+        public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Method to incoke PropertyChanged even handler 
+        /// </summary>
+        /// <param name="property"></param>
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
     }
 }

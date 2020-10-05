@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Nhicolas Aponte 
+ * Class Name: MainWindow.xaml.cs 
+ * Purpose: Class used to represent Main Window and its properties 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
