@@ -4,6 +4,7 @@
  */
 
 using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,7 +25,7 @@ namespace PointOfSale
     /// </summary>
     public partial class SideMenu : UserControl
     {
-        private MainWindow mainWindow
+        private OrderControl orderControl
         {
             get
             {
@@ -32,8 +33,8 @@ namespace PointOfSale
                 do
                 {
                     parent = LogicalTreeHelper.GetParent(parent);
-                } while (!(parent is null || parent is MainWindow));
-                return (MainWindow)parent;
+                } while (!(parent is null || parent is OrderControl));
+                return (OrderControl)parent;
             }
         }
         public SideMenu()
@@ -47,23 +48,51 @@ namespace PointOfSale
         }
         void MainMenuScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new MainMenu();
+            orderControl.screenBorder.Child = new MainMenu();
         }
         void WaffleFriesScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new DragonbornWaffleFriesScreen(); 
+            var ds = new DragonbornWaffleFriesScreen();
+            ds.DataContext = new DragonbornWaffleFries();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)ds.DataContext);
+            }
+            orderControl.screenBorder.Child = ds;
         }   
         void MiraakScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new FriedMiraakScreen(); 
+            var fs = new FriedMiraakScreen();
+            fs.DataContext = new FriedMiraak();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)fs.DataContext);
+            }
+            orderControl.screenBorder.Child = fs;
         }    
         void GritsScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new MadOtarGritsScreen(); 
+            var mos = new MadOtarGritsScreen();
+            mos.DataContext = new MadOtarGrits();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)mos.DataContext);
+            }
+            orderControl.screenBorder.Child = mos;
         }    
         void SaladScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new VokunSaladScreen(); 
+            var vs = new VokunSaladScreen();
+            vs.DataContext = new VokunSalad();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)vs.DataContext);
+            }
+            orderControl.screenBorder.Child = vs; 
         }
     }
 }

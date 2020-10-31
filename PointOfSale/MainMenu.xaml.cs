@@ -23,7 +23,7 @@ namespace PointOfSale
     /// </summary>
     public partial class MainMenu : UserControl
     {
-        private MainWindow mainWindow
+        private OrderControl OrderControl
         {
             get
             {
@@ -31,8 +31,8 @@ namespace PointOfSale
                 do
                 {
                     parent = LogicalTreeHelper.GetParent(parent);
-                } while (!(parent is null || parent is MainWindow));
-                return (MainWindow) parent; 
+                } while (!(parent is null || parent is OrderControl));
+                return (OrderControl) parent; 
             }
         }
         public MainMenu()
@@ -44,15 +44,15 @@ namespace PointOfSale
         }
         void EntreeScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new EntreeMenu(); 
+            OrderControl.screenBorder.Child = new EntreeMenu(); 
         }
         void SideScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new SideMenu(); 
+            OrderControl.screenBorder.Child = new SideMenu(); 
         }
         void DrinkScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new DrinkMenu(); 
+            OrderControl.screenBorder.Child = new DrinkMenu(); 
         }
     }
 }

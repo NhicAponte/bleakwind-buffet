@@ -3,9 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PointOfSale"
+             xmlns:local="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="500">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="size" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <ToggleButton Content="{TemplateBinding ContentPresenter.Content}" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,22 +36,9 @@
         <TextBlock FontWeight="Bold" TextAlignment="Center" FontSize="25" Grid.ColumnSpan="2"> 
             Customize Fried Miraak
         </TextBlock>
-        <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="ingredientsList" Grid.Row="1">
-            <RadioButton>
-                Small
-            </RadioButton>
-            <RadioButton>
-                Medium
-            </RadioButton>
-            <RadioButton>
-                Large
-            </RadioButton>
-        </ListView>
-        <Button Grid.Column="1" Grid.Row="1" Height="60" Width="200" FontSize="30">
-            Add To Order
-        </Button>
-        <Button Name="backButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
-            Back
+        <ListView ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path=GetValues}" HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="ingredientsList" Grid.Row="1"/>
+        <Button Name="doneButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
+            Done
         </Button>
     </Grid>
 </UserControl>

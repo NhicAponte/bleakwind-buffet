@@ -3,6 +3,8 @@
  * Purpose: Class used to represent Drink Menu screen and its properties 
  */
 
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,7 +25,7 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkMenu : UserControl
     {
-        private MainWindow mainWindow
+        private OrderControl orderControl
         {
             get
             {
@@ -31,8 +33,8 @@ namespace PointOfSale
                 do
                 {
                     parent = LogicalTreeHelper.GetParent(parent);
-                } while (!(parent is null || parent is MainWindow));
-                return (MainWindow)parent;
+                } while (!(parent is null || parent is OrderControl));
+                return (OrderControl)parent;
             }
         }
         public DrinkMenu()
@@ -48,27 +50,62 @@ namespace PointOfSale
 
         void CoffeeScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new CandlehearthCoffeeScreen();
+            var cs = new CandlehearthCoffeeScreen();
+            cs.DataContext = new CandlehearthCoffee();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)cs.DataContext);
+            }
+            orderControl.screenBorder.Child = cs;
         }
         void JuiceScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new AretinoAppleJuiceScreen();
+            var ajs = new AretinoAppleJuiceScreen();
+            ajs.DataContext = new AretinoAppleJuice();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)ajs.DataContext);
+            }
+            orderControl.screenBorder.Child = ajs;
         }
         void MilkScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new MarkarthMilkScreen();
+            var mms = new MarkarthMilkScreen();
+            mms.DataContext = new MarkarthMilk();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)mms.DataContext);
+            }
+            orderControl.screenBorder.Child = mms;
         }
         void SodaScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new SailorSodaScreen();
+            var sas = new SailorSodaScreen();
+            sas.DataContext = new SailorSoda();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)sas.DataContext);
+            }
+            orderControl.screenBorder.Child = sas;
         }
         void WaterScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new WarriorWaterScreen();
+            var ws = new WarriorWaterScreen();
+            ws.DataContext = new WarriorWater();
+
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)ws.DataContext);
+            }
+            orderControl.screenBorder.Child = ws;
         }
         void MainMenuScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new MainMenu();
+            orderControl.screenBorder.Child = new MainMenu();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace PointOfSale
     public partial class FriedMiraakScreen : UserControl
     {
 
-        private MainWindow mainWindow
+        private OrderControl OrderControl
         {
             get
             {
@@ -32,20 +32,20 @@ namespace PointOfSale
                 do
                 {
                     parent = LogicalTreeHelper.GetParent(parent);
-                } while (!(parent is null || parent is MainWindow));
-                return (MainWindow)parent;
+                } while (!(parent is null || parent is OrderControl));
+                return (OrderControl)parent;
             }
         }
         public FriedMiraakScreen()
         {
             InitializeComponent();
-            backButton.Click += SideScreen;
+            doneButton.Click += SideScreen;
 
         }
 
         void SideScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new SideMenu();
+            OrderControl.screenBorder.Child = new SideMenu();
         }
 
     }

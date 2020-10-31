@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale
 {
@@ -23,7 +25,7 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeMenu : UserControl
     {
-        private MainWindow mainWindow
+        private OrderControl orderControl
         {
             get
             {
@@ -31,8 +33,8 @@ namespace PointOfSale
                 do
                 {
                     parent = LogicalTreeHelper.GetParent(parent);
-                } while (!(parent is null || parent is MainWindow));
-                return (MainWindow)parent;
+                } while (!(parent is null || parent is OrderControl));
+                return (OrderControl)parent;
             }
         }
         public EntreeMenu()
@@ -49,35 +51,81 @@ namespace PointOfSale
         }
         void BriarheartScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new BriarheartBurgerScreen();
+            BriarheartBurgerScreen bbs = new BriarheartBurgerScreen();
+            bbs.DataContext = new BriarheartBurger(); 
+
+            if(orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)bbs.DataContext); 
+            }
+            orderControl.screenBorder.Child = bbs;
+
+            //can I add the item already edited with the add item button 
         }
         void DraugrScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new DoubleDraugrScreen();
+            var ds = new DoubleDraugrScreen();
+            ds.DataContext = new DoubleDraugr(); 
+
+            if(orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)ds.DataContext); 
+            }
+            orderControl.screenBorder.Child = ds;
         }
         void orcOmeletteScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new GardenOrcOmeletteScreen();
+            var gs = new GardenOrcOmeletteScreen();
+            gs.DataContext = new GardenOrcOmelette();
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)gs.DataContext);
+            }
+            orderControl.screenBorder.Child = gs;
         }
         void PhillyScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new PhillyPoacherScreen();
+            var ps = new PhillyPoacherScreen();
+            ps.DataContext = new PhillyPoacher();
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)ps.DataContext);
+            }
+            orderControl.screenBorder.Child = ps;
         }
         void SkeletonScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new SmokehouseSkeletonScreen();
+            var ss = new SmokehouseSkeletonScreen();
+            ss.DataContext = new SmokehouseSkeleton();
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)ss.DataContext);
+            }
+            orderControl.screenBorder.Child = ss;
         }
         void TBoneScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new ThugsTBoneScreen();
+            var ths = new ThugsTBoneScreen();
+            ths.DataContext = new ThugsTBone();
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)ths.DataContext);
+            }
+            orderControl.screenBorder.Child = ths;
         }
         void ThalmorScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new ThalmorTripleScreen();
+            var ts = new ThalmorTripleScreen();
+            ts.DataContext = new ThalmorTriple();
+            if (orderControl.DataContext is Order order)
+            {
+                order.Add((IOrderItem)ts.DataContext);
+            }
+            orderControl.screenBorder.Child = ts;
         }    
         void MainMenuScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new MainMenu();
+            orderControl.screenBorder.Child = new MainMenu();
         }
     }
 }

@@ -20,21 +20,18 @@
             Customize Philly Poacher
         </TextBlock>
         <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="Ingredients" Grid.Row="1" Grid.RowSpan="2">
-            <CheckBox>
+            <CheckBox IsChecked="{Binding Path=Sirloin}">
                 Sirloin
             </CheckBox>
-            <CheckBox>
+            <CheckBox IsChecked="{Binding Path=Onion}">
                 Onion
             </CheckBox>
-            <CheckBox>
+            <CheckBox IsChecked="{Binding Path=Roll}">
                 Roll
             </CheckBox>
         </ListView>
-        <Button Grid.Column="1" Grid.Row="1" Height="60" Width="200" FontSize="30">
-            Add To Order
-        </Button>
-        <Button Name="backButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
-            Back
+        <Button Name="doneButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
+            Done
         </Button>
     </Grid>
 </UserControl>

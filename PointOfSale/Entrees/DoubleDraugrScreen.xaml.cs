@@ -23,7 +23,7 @@ namespace PointOfSale
     /// </summary>
     public partial class DoubleDraugrScreen : UserControl
     {
-        private MainWindow mainWindow
+        private OrderControl OrderControl
         {
             get
             {
@@ -31,18 +31,18 @@ namespace PointOfSale
                 do
                 {
                     parent = LogicalTreeHelper.GetParent(parent);
-                } while (!(parent is null || parent is MainWindow));
-                return (MainWindow)parent;
+                } while (!(parent is null || parent is OrderControl));
+                return (OrderControl)parent;
             }
         }
         public DoubleDraugrScreen()
         {
             InitializeComponent();
-            backButton.Click += EntreeScreen; 
+            doneButton.Click += EntreeScreen; 
         }
         void EntreeScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new EntreeMenu();
+            OrderControl.screenBorder.Child = new EntreeMenu();
         }
     }
 }

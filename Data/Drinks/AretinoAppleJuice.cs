@@ -14,10 +14,6 @@ namespace BleakwindBuffet.Data.Drinks
     public class AretinoAppleJuice : Drink, INotifyPropertyChanged 
     {
         /// <summary>
-        /// event handler from INotifyPropertyChanged interface 
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged; 
-        /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
         /*private Size size = Size.Small; 
@@ -90,7 +86,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value) specialInstructions.Add("Add ice");
                 else specialInstructions.Remove("Add ice");
                 ice = value;
-                OnPropertyChanged("Ice");
+                OnPropertyChanged("Ice"); 
             }
         }
         /// <summary>
@@ -109,5 +105,6 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return $"{Size} Aretino Apple Juice"; 
         }
+ 
     }
 }

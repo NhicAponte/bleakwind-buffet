@@ -6,11 +6,12 @@
 using BleakwindBuffet.Data.Enums; 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data
 {
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
         /// price of item 
@@ -26,6 +27,7 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// special instructions for item 
         /// </summary>
-        List<string> SpecialInstructions { get; } 
+        List<string> SpecialInstructions { get; }
+        //Action<object, PropertyChangedEventArgs> PropertyChanged { get; set; }
     }
 }

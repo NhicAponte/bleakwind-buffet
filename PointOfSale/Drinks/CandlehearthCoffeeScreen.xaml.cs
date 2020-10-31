@@ -24,7 +24,7 @@ namespace PointOfSale
     public partial class CandlehearthCoffeeScreen : UserControl
     {
 
-        private MainWindow mainWindow
+        private OrderControl OrderControl
         {
             get
             {
@@ -32,20 +32,20 @@ namespace PointOfSale
                 do
                 {
                     parent = LogicalTreeHelper.GetParent(parent);
-                } while (!(parent is null || parent is MainWindow));
-                return (MainWindow)parent;
+                } while (!(parent is null || parent is OrderControl));
+                return (OrderControl)parent;
             }
         }
         public CandlehearthCoffeeScreen()
         {
             InitializeComponent();
-            backButton.Click += DrinkScreen;
+            doneButton.Click += DrinkScreen;
 
         }
 
         void DrinkScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new DrinkMenu();
+            OrderControl.screenBorder.Child = new DrinkMenu();
         }
 
     }

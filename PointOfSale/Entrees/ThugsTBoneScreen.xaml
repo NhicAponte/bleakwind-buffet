@@ -24,11 +24,8 @@
                 Thugs T-Bone 
             </CheckBox>
         </ListView>
-        <Button Grid.Column="1" Grid.Row="1" Height="60" Width="200" FontSize="30">
-            Add To Order
-        </Button>
-        <Button Name="backButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
-            Back
+        <Button Name="doneButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
+            Done
         </Button>
     </Grid>
 </UserControl>

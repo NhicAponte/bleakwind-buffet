@@ -1,4 +1,4 @@
-﻿/* Author: Nhicolas Aponte 
+﻿ /* Author: Nhicolas Aponte 
  * Class Name: BriarheartBurger.cs 
  * Purpose: Class used to represent Briarheart Burger and its properties 
  */ 
@@ -40,7 +40,8 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!value) specialInstructions.Add("Hold ketchup");
                 else specialInstructions.Remove("Hold ketchup"); 
                 ketchup = value;
-                OnPropertyChanged("Ketchup"); 
+                OnPropertyChanged("Ketchup");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -60,6 +61,7 @@ namespace BleakwindBuffet.Data.Entrees
                 else specialInstructions.Remove("Hold bun");
                 bun = value;
                 OnPropertyChanged("Bun");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -78,6 +80,7 @@ namespace BleakwindBuffet.Data.Entrees
                 else specialInstructions.Remove("Hold mustard");
                 mustard = value;
                 OnPropertyChanged("Mustard");
+                OnPropertyChanged("SpecialInstructions");
             }
         } 
         /// <summary>
@@ -96,6 +99,7 @@ namespace BleakwindBuffet.Data.Entrees
                 else specialInstructions.Remove("Hold pickle");
                 pickle = value;
                 OnPropertyChanged("Pickle");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -114,6 +118,8 @@ namespace BleakwindBuffet.Data.Entrees
                 else specialInstructions.Remove("Hold cheese");
                 cheese = value;
                 OnPropertyChanged("Cheese");
+                OnPropertyChanged("SpecialInstructions");
+
             }
         } 
         /// <summary>

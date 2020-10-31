@@ -1,14 +1,6 @@
-﻿/* Author: Nhicolas Aponte 
- * Class Name: MainWindow.xaml.cs 
- * Purpose: Class used to represent Main Window and its properties 
- */
-
-using BleakwindBuffet.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,18 +10,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OrderControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OrderControl : UserControl
     {
-        public MainWindow()
+        public OrderControl()
         {
             InitializeComponent();
+            Order order = new Order();
+            DataContext = order;
         }
-
     }
 }

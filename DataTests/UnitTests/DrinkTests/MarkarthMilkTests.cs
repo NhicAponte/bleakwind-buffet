@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel; 
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -21,12 +22,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             MarkarthMilk mm = new MarkarthMilk();
             Assert.IsAssignableFrom<IOrderItem>(mm);
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(mm);
         }
         [Fact]
         public void ShouldBeADrink()
         {
             MarkarthMilk mm = new MarkarthMilk();
             Assert.IsAssignableFrom<Drink>(mm);
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Ice", () =>
+            {
+                mm.Ice = false;
+            });
+            Assert.PropertyChanged(mm, "Ice", () =>
+            {
+                mm.Ice = true;
+            });
         }
         [Fact]
         public void ShouldNotIncludeIceByDefault()

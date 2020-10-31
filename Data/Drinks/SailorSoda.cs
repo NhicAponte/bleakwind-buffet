@@ -103,5 +103,13 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return $"{Size} {Flavor} Sailor Soda";
         }
+        /// <summary>
+        /// Method to incoke PropertyChanged even handler 
+        /// </summary>
+        /// <param name="property"></param>
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
     }
 }

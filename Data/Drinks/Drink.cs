@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -19,6 +20,8 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string Name => ToString();
+
         private Size size = Size.Small;
         /// <summary>
         /// size of drink 
@@ -32,6 +35,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 OnPropertyChanged("Size");
                 OnPropertyChanged("Price");
                 OnPropertyChanged("Calories");
@@ -52,14 +58,14 @@ namespace BleakwindBuffet.Data.Drinks
         /// Special instructions to prepare drink 
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
-
+        
         /// <summary>
         /// Method to incoke PropertyChanged even handler 
         /// </summary>
         /// <param name="property"></param>
-        public void OnPropertyChanged(string property)
+        protected void OnPropertyChanged(string property)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
+        } 
     }
 }

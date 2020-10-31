@@ -3,14 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// A base class representing common properties of entrees 
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged 
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        public string Name => ToString();
+
         /// <summary>
         /// price of entree 
         /// </summary>\

@@ -20,24 +20,21 @@
             Customize Garden Orc Omelette 
         </TextBlock>
         <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="Ingredients" Grid.Row="1" Grid.RowSpan="2">
-            <CheckBox>
-                Broccoli 
+            <CheckBox IsChecked="{Binding Path=Broccoli}">
+                Broccoli
             </CheckBox>
-            <CheckBox>
+            <CheckBox IsChecked="{Binding Path=Mushrooms}">
                 Mushrooms
             </CheckBox>
-            <CheckBox>
+            <CheckBox IsChecked="{Binding Path=Tomato}">
                 Tomato
             </CheckBox>
-            <CheckBox>
+            <CheckBox IsChecked="{Binding Path=Cheddar}">
                 Cheddar
             </CheckBox>
         </ListView>
-        <Button Grid.Column="1" Grid.Row="1" Height="60" Width="200" FontSize="30">
-            Add To Order
-        </Button>
-        <Button Name="backButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
-            Back
+        <Button Name="doneButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
+            Done
         </Button>
     </Grid>
 </UserControl>

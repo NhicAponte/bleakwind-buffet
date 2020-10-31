@@ -12,6 +12,9 @@ namespace BleakwindBuffet.Data.Sides
         /// event handler from INotifyPropertyChanged interface 
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name => ToString();
+
         /// <summary>
         /// size of side 
         /// </summary>

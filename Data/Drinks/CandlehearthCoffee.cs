@@ -106,7 +106,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value) specialInstructions.Add("Leave room for cream");
                 else specialInstructions.Remove("Leave room for cream");
                 roomForCream = value;
-                OnPropertyChanged("Room for cream"); 
+                OnPropertyChanged("RoomForCream"); 
             }
         }
         /// <summary>
@@ -150,6 +150,14 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 return $"{Size} Candlehearth Coffee"; 
             }
+        }
+        /// <summary>
+        /// Method to incoke PropertyChanged even handler 
+        /// </summary>
+        /// <param name="property"></param>
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }
 }

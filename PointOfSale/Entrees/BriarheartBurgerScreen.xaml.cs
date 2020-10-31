@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale
@@ -24,7 +25,7 @@ namespace PointOfSale
     /// </summary>
     public partial class BriarheartBurgerScreen : UserControl
     {
-        private MainWindow mainWindow
+        private OrderControl OrderControl
         {
             get
             {
@@ -32,19 +33,20 @@ namespace PointOfSale
                 do
                 {
                     parent = LogicalTreeHelper.GetParent(parent);
-                } while (!(parent is null || parent is MainWindow));
-                return (MainWindow)parent;
+                } while (!(parent is null || parent is OrderControl));
+                return (OrderControl)parent;
             }
         }
         public BriarheartBurgerScreen()
         {
             InitializeComponent();
-            backButton.Click += EntreeScreen; 
+            doneButton.Click += EntreeScreen; 
         }
 
         void EntreeScreen(object sender, RoutedEventArgs e)
         {
-            mainWindow.screenBorder.Child = new EntreeMenu();
+            //var item = new IOrderItem();
+            OrderControl.screenBorder.Child = new EntreeMenu();
         }
         /*
         void AddItem(object sender, RoutedEventArgs e)

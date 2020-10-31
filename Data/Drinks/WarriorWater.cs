@@ -105,5 +105,6 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return $"{Size} Warrior Water";
         }
+
     }
 }
