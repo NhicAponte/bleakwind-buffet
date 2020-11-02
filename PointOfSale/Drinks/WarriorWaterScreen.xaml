@@ -36,14 +36,14 @@
         <TextBlock FontWeight="Bold" TextAlignment="Center" FontSize="25" Grid.ColumnSpan="2"> 
             Customize Warrior Water 
         </TextBlock>
-        <ListView HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="Ingredients" Grid.Row="1" Grid.RowSpan="2">
+        <ListBox HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="Ingredients" Grid.Row="1" Grid.RowSpan="2">
             <CheckBox>
                 Ice
             </CheckBox>   
             <CheckBox>
                 Lemon
             </CheckBox>
-        </ListView>
+        </ListBox>
         <ListView Grid.Column="0" Grid.Row="2" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path=GetValues}" HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize ="20" Name ="ingredientsList"/>
         <Button Name="doneButton" Grid.Column="1" Grid.Row="2" Height="60" Width="200" FontSize="30">
             Done

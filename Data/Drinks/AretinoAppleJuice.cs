@@ -13,6 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
 {
     public class AretinoAppleJuice : Drink, INotifyPropertyChanged 
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
@@ -30,7 +31,7 @@ namespace BleakwindBuffet.Data.Drinks
                 if (size == Size.Large) { OnPropertyChanged("Large"); }
                 if (size == Size.Small) { OnPropertyChanged("Small"); }
             }
-        }*/ 
+        }*/
         /// <summary>
         /// gets the price based on the size of the drink 
         /// </summary>
@@ -86,7 +87,8 @@ namespace BleakwindBuffet.Data.Drinks
                 if (value) specialInstructions.Add("Add ice");
                 else specialInstructions.Remove("Add ice");
                 ice = value;
-                OnPropertyChanged("Ice"); 
+                OnPropertyChanged("Ice");
+                OnPropertyChanged("SpecialInstructions");
             }
         }
         /// <summary>
@@ -105,6 +107,14 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return $"{Size} Aretino Apple Juice"; 
         }
- 
+        /// <summary>
+        /// Method to incoke PropertyChanged even handler 
+        /// </summary>
+        /// <param name="property"></param>
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
+
     }
 }

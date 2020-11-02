@@ -1,0 +1,76 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<h1>Bleakwind Buffet</h1>
+<p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!</p>
+
+<h2>Entrees</h2>
+<div class="menu-item">
+    @foreach (BleakwindBuffet.Data.Entrees.Entree item in BleakwindBuffet.Data.Menu.Entrees())
+    {
+        <li>
+
+            <h3>@item.Name</h3>
+            <div>@item.Calories</div>
+            <div>@item.Price</div>
+
+        </li>
+    }
+</div>
+
+<h2>Sides</h2>
+<div class="menu-item">
+    @foreach (BleakwindBuffet.Data.Sides.Side item in BleakwindBuffet.Data.Menu.Sides())
+    {
+        <li>
+            @item.Size = Size.Small
+            <h3>@item.Name</h3>
+            <div>@item.Calories</div>
+            <div>@item.Price</div>
+            @item.Size = Size.Medium
+            <h3>@item.Name</h3>
+            <div>@item.Calories</div>
+            <div>@item.Price</div>
+            @item.Size = Size.Large
+            <h3>@item.Name</h3>
+            <div>@item.Calories</div>
+            <div>@item.Price</div>
+        </li>
+    }
+</div>
+
+<h2>Drinks</h2>
+<div class="menu-item">
+    @foreach (BleakwindBuffet.Data.Drinks.Drink item in BleakwindBuffet.Data.Menu.Drinks())
+    {
+        <li>
+            @item.Size = Size.Small
+            <h3>@item.Name</h3>
+            <div>@item.Calories</div>
+            <div>@item.Price</div>
+            @item.Size = Size.Medium
+            <h3>@item.Name</h3>
+            <div>@item.Calories</div>
+            <div>@item.Price</div>
+            @item.Size = Size.Large
+            <h3>@item.Name</h3>
+            <div>@item.Calories</div>
+            <div>@item.Price</div>
+        </li>
+    }
+</div>
+
+<p>Combos can be made up of any entree, side, and drink with a $1 dollar discount on the combined price</p>
+<h2>Soda Flavors</h2>
+<h3>Blackberry</h3>
+<h3>Cherry</h3>
+<h3>Grapefruit</h3>
+<h3>Lemon</h3>
+<h3>Peach</h3>
+<h3>Watermelon</h3>
+
+
