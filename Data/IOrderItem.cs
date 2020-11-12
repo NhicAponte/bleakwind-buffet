@@ -29,5 +29,6 @@ namespace BleakwindBuffet.Data
         /// </summary>
         List<string> SpecialInstructions { get; }
         //Action<object, PropertyChangedEventArgs> PropertyChanged { get; set; }
+        string Name { get; }
     }
 }

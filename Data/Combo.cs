@@ -87,7 +87,14 @@ namespace BleakwindBuffet.Data
                 return specialInstructions; 
             }
         }
-
+        public string Name
+        {
+            get
+            {
+                return entree.Name + " with a side of " + side.Name + " and a " + drink.Name;
+            }
+ 
+        }
         /// <summary>
         /// Method to incoke PropertyChanged even handler 
         /// </summary>

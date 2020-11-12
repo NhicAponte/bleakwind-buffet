@@ -9,15 +9,18 @@ using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
-using System.Text; 
+using System.Text;
+using System.Linq;
 
 namespace BleakwindBuffet.Data
 {
     public static class Menu 
     {
+
+
         public static IEnumerable<IOrderItem> Entrees()
         {
-            List<IOrderItem> entreeList = new List<IOrderItem>(); 
+            List<IOrderItem> entreeList = new List<IOrderItem>();
 
             BriarheartBurger b = new BriarheartBurger();
             entreeList.Add(b);
@@ -42,12 +45,11 @@ namespace BleakwindBuffet.Data
 
             return entreeList; 
         }  
-        
         public static IEnumerable<IOrderItem> Sides()
         {
-            List<IOrderItem> sideList = new List<IOrderItem>(); 
+            List<IOrderItem> sideList = new List<IOrderItem>();
 
-            foreach(Size s in Enum.GetValues(typeof(Size)))
+            foreach (Size s in Enum.GetValues(typeof(Size)))
             {
                 DragonbornWaffleFries dr = new DragonbornWaffleFries(); 
                 dr.Size = s;
@@ -67,10 +69,10 @@ namespace BleakwindBuffet.Data
             }
             return sideList; 
         }      
-
         public static IEnumerable<IOrderItem> Drinks()
         {
             List<IOrderItem> drinkList = new List<IOrderItem>(); 
+
             //could get rid of foreach loop and just use different vars for Size 
             foreach(Size s in Enum.GetValues(typeof(Size)))
             {
@@ -106,15 +108,152 @@ namespace BleakwindBuffet.Data
             }
             return drinkList; 
         }
-        
+
+        public static List<IOrderItem> menuItems = new List<IOrderItem>();
         public static IEnumerable<IOrderItem> FullMenu()
         {
-            List<IOrderItem> fullList = new List<IOrderItem>();
-            fullList.AddRange(Sides()); 
-            fullList.AddRange(Entrees()); 
-            fullList.AddRange(Drinks()); 
+            //List<IOrderItem> fullList = new List<IOrderItem>();
+            
+            menuItems.AddRange(Sides());
+            menuItems.AddRange(Entrees());
+            menuItems.AddRange(Drinks()); 
 
-            return fullList; 
+            return menuItems; 
         } 
+
+        public static IEnumerable<IOrderItem> All { get { return FullMenu(); } } 
+        public static IEnumerable<IOrderItem> Search(string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if(terms == null)
+            {
+                return All; 
+            }
+
+            foreach(IOrderItem item in All)
+            {
+                if(item.Name.Contains(terms)) // StringComparison.CurrentCultureIgnoreCase))
+                {
+                    results.Add(item);
+                }
+            }
+            
+            return results; 
+        }
+
+        public static string[] Categories
+        {
+            get => new string[]
+            {
+                "Entree",
+                "Side",
+                "Drink"
+            };
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> menuItems, IEnumerable<string> category)
+        {
+            if(category == null || category.Count() == 0)
+            {
+                return menuItems; 
+            }
+            List<IOrderItem> results = new List<IOrderItem>();
+            foreach(IOrderItem item in menuItems)
+            {
+
+                if (Entrees().Contains(item))
+                {
+                    results.Add(item);
+                }
+                if (Drinks().Contains(item))
+                {
+                    results.Add(item);
+                }
+                if (Sides().Contains(item))
+                {
+                    results.Add(item);
+                }
+            }
+            return results; 
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
+        {
+            if(min == null && max == null)
+            {
+                return items;
+            }
+            var results = new List<IOrderItem>(); 
+            if(min == null)
+            {
+                foreach(IOrderItem item in items)
+                {
+                    if(item.Calories <= max)
+                    {
+                        results.Add(item);
+                    }
+                }
+                return results; 
+            }
+            if(max == null)
+            {
+                foreach(IOrderItem item in items)
+                {
+                    if(item.Calories >= min)
+                    {
+                        results.Add(item); 
+                    }
+                }
+                return results; 
+            }
+            foreach(IOrderItem item in items)
+            {
+                if(item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results; 
+        }
+
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if(min == null && max == null)
+            {
+                return items;
+            }
+            var results = new List<IOrderItem>(); 
+            if(min == null)
+            {
+                foreach(IOrderItem item in items)
+                {
+                    if(item.Price <= max)
+                    {
+                        results.Add(item);
+                    }
+                }
+                return results; 
+            }
+            if(max == null)
+            {
+                foreach(IOrderItem item in items)
+                {
+                    if(item.Price >= min)
+                    {
+                        results.Add(item); 
+                    }
+                }
+                return results; 
+            }
+            foreach(IOrderItem item in items)
+            {
+                if(item.Price >= min && item.Price <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results; 
+        }
     }
 }

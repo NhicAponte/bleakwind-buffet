@@ -4,73 +4,101 @@
     ViewData["Title"] = "Home page";
 }
 
-
 <h1>Bleakwind Buffet</h1>
 <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!</p>
 
-<h2>Entrees</h2>
-<div class="menu-item">
-    @foreach (BleakwindBuffet.Data.Entrees.Entree item in BleakwindBuffet.Data.Menu.Entrees())
-    {
-        <li>
+<form id="item-database">
+    <div id="search">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" name="Search" />
+    </div>
+    <div id="filters">
+        <h4>Category</h4>
+        @foreach (String category in BleakwindBuffet.Data.Menu.Categories)
+        {
+            <lable>
+                <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
+                @category
+            </lable>
+        }
 
-            <h3>@item.Name</h3>
-            <div>@item.Calories</div>
-            <div>@item.Price</div>
+        <h4>Calories</h4>
+        <div>
+            Between
+            <input name="calMin" type="number" min="0" max="1000" step="1" value="@Model.CalMin" placeholder="min" />
+            and
+            <input name="calMax" type="number" min="0" max="1000" step="1" value="@Model.CalMax" placeholder="min" />
+        </div>
 
-        </li>
-    }
-</div>
+        <h4>Price</h4>
+        <div>
+            Between
+            <input name="priceMin" type="number" min="0" max="1000" step="1" value="@Model.PriceMin" placeholder="min" />
+            and
+            <input name="priceMax" type="number" min="0" max="20" step="1" value="@Model.PriceMax" placeholder="min" />
+        </div>
+    </div>
 
-<h2>Sides</h2>
-<div class="menu-item">
-    @foreach (BleakwindBuffet.Data.Sides.Side item in BleakwindBuffet.Data.Menu.Sides())
-    {
-        <li>
-            @item.Size = Size.Small
-            <h3>@item.Name</h3>
-            <div>@item.Calories</div>
-            <div>@item.Price</div>
-            @item.Size = Size.Medium
-            <h3>@item.Name</h3>
-            <div>@item.Calories</div>
-            <div>@item.Price</div>
-            @item.Size = Size.Large
-            <h3>@item.Name</h3>
-            <div>@item.Calories</div>
-            <div>@item.Price</div>
-        </li>
-    }
-</div>
+    <div id="results">
 
-<h2>Drinks</h2>
-<div class="menu-item">
-    @foreach (BleakwindBuffet.Data.Drinks.Drink item in BleakwindBuffet.Data.Menu.Drinks())
-    {
-        <li>
-            @item.Size = Size.Small
-            <h3>@item.Name</h3>
-            <div>@item.Calories</div>
-            <div>@item.Price</div>
-            @item.Size = Size.Medium
-            <h3>@item.Name</h3>
-            <div>@item.Calories</div>
-            <div>@item.Price</div>
-            @item.Size = Size.Large
-            <h3>@item.Name</h3>
-            <div>@item.Calories</div>
-            <div>@item.Price</div>
-        </li>
-    }
-</div>
+        <h2>Entrees</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
+        {
 
-<p>Combos can be made up of any entree, side, and drink with a $1 dollar discount on the combined price</p>
-<h2>Soda Flavors</h2>
-<h3>Blackberry</h3>
-<h3>Cherry</h3>
-<h3>Grapefruit</h3>
-<h3>Lemon</h3>
-<h3>Peach</h3>
-<h3>Watermelon</h3>
+            if (item is BleakwindBuffet.Data.Entrees.Entree entree)
+            {
+                <div class="menu-item">
+                    <li>
+                        <h3>@entree.Name</h3>
+                        <div>@entree.Calories</div>
+                        <div>@entree.Price</div>
+
+                    </li>
+                </div>
+            }
+        }
+        <h2>Sides</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
+        {
+            if (item is BleakwindBuffet.Data.Sides.Side side)
+            {
+                <div class="menu-item">
+                    <li>
+                        <h3>@side.Name</h3>
+                        <div>@side.Calories</div>
+                        <div>@side.Price</div>
+                    </li>
+                </div>
+            }
+        }
+
+
+        <h2>Drinks</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
+        {
+            if (item is BleakwindBuffet.Data.Drinks.Drink drink)
+            {
+                <div class="menu-item">
+                    <li>
+                        <h3>@drink.Name</h3>
+                        <div>@drink.Calories</div>
+                        <div>@drink.Price</div>
+                    </li>
+
+                </div>
+            }
+        }
+
+        <p>Combos can be made up of any entree, side, and drink with a $1 dollar discount on the combined price</p>
+        <h2>Soda Flavors</h2>
+        <h3>Blackberry</h3>
+        <h3>Cherry</h3>
+        <h3>Grapefruit</h3>
+        <h3>Lemon</h3>
+        <h3>Peach</h3>
+        <h3>Watermelon</h3>
+    </div>
+    
+</form>
 
 
