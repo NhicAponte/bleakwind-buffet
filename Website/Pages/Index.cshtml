@@ -8,11 +8,11 @@
 <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!</p>
 
 <form id="item-database">
-    <div id="search">
-        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
-        <input type="submit" name="Search" />
-    </div>
     <div id="filters">
+        <div id="search">
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+            <input type="submit" name="Search" />
+        </div>
         <h4>Category</h4>
         @foreach (String category in BleakwindBuffet.Data.Menu.Categories)
         {
@@ -40,63 +40,70 @@
     </div>
 
     <div id="results">
-
-        <h2>Entrees</h2>
-        @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
-        {
-
-            if (item is BleakwindBuffet.Data.Entrees.Entree entree)
+        <div>
+            <h2>Entrees</h2>
+            @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
             {
-                <div class="menu-item">
-                    <li>
-                        <h3>@entree.Name</h3>
-                        <div>@entree.Calories</div>
-                        <div>@entree.Price</div>
 
-                    </li>
-                </div>
+                if (item is BleakwindBuffet.Data.Entrees.Entree entree)
+                {
+                    <ol class="menu-item">
+                        <li>
+                            <h3>@entree.Name</h3>
+                            <div>Calories: @entree.Calories</div>
+                            <div>Price: @entree.Price</div>
+
+                        </li>
+                    </ol>
+                }
             }
-        }
-        <h2>Sides</h2>
-        @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
-        {
-            if (item is BleakwindBuffet.Data.Sides.Side side)
+        </div>
+
+        <div>
+            <h2>Sides</h2>
+            @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
             {
-                <div class="menu-item">
-                    <li>
-                        <h3>@side.Name</h3>
-                        <div>@side.Calories</div>
-                        <div>@side.Price</div>
-                    </li>
-                </div>
+                if (item is BleakwindBuffet.Data.Sides.Side side)
+                {
+                    <ol class="menu-item">
+                        <li>
+                            <h3>@side.Name</h3>
+                            <div>Calories: @side.Calories</div>
+                            <div>Price: @side.Price</div>
+                        </li>
+                    </ol>
+                }
             }
-        }
-
-
-        <h2>Drinks</h2>
-        @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
-        {
-            if (item is BleakwindBuffet.Data.Drinks.Drink drink)
+        </div>
+ 
+        <div>
+            <h2>Drinks</h2>
+            @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
             {
-                <div class="menu-item">
-                    <li>
-                        <h3>@drink.Name</h3>
-                        <div>@drink.Calories</div>
-                        <div>@drink.Price</div>
-                    </li>
+                if (item is BleakwindBuffet.Data.Drinks.Drink drink)
+                {
+                    <ol class="menu-item">
+                        <li>
+                            <h3>@drink.Name</h3>
+                            <div>Calories: @drink.Calories</div>
+                            <div>Price: @drink.Price</div>
+                        </li>
 
-                </div>
+                    </ol>
+                }
             }
-        }
+        </div>
 
-        <p>Combos can be made up of any entree, side, and drink with a $1 dollar discount on the combined price</p>
-        <h2>Soda Flavors</h2>
-        <h3>Blackberry</h3>
-        <h3>Cherry</h3>
-        <h3>Grapefruit</h3>
-        <h3>Lemon</h3>
-        <h3>Peach</h3>
-        <h3>Watermelon</h3>
+        <div>
+            <p>Combos can be made up of any entree, side, and drink with a $1 dollar discount on the combined price</p>
+            <h2>Additional Soda Flavors</h2>
+            <h4>Blackberry</h4>
+            <h4>Grapefruit</h4>
+            <h4>Lemon</h4>
+            <h4>Peach</h4>
+            <h4>Watermelon</h4>
+        </div>
+
     </div>
     
 </form>

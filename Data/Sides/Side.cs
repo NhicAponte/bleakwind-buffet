@@ -15,6 +15,14 @@ namespace BleakwindBuffet.Data.Sides
 
         public string Name => ToString();
 
+        public string Category
+        {
+            get
+            {
+                return "Side";
+            }
+        }
+
         /// <summary>
         /// size of side 
         /// </summary>

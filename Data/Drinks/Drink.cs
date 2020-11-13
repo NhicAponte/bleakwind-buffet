@@ -22,6 +22,14 @@ namespace BleakwindBuffet.Data.Drinks
 
         public string Name => ToString();
 
+        public string Category
+        {
+            get
+            {
+                return "Drink";
+            }
+        }
+
         private Size size = Size.Small;
         /// <summary>
         /// size of drink 

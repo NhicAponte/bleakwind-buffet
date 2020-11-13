@@ -30,5 +30,7 @@ namespace BleakwindBuffet.Data
         List<string> SpecialInstructions { get; }
         //Action<object, PropertyChangedEventArgs> PropertyChanged { get; set; }
         string Name { get; }
+
+        string Category { get; }
     }
 }

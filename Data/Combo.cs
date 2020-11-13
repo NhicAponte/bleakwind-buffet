@@ -20,6 +20,14 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        public string Category
+        {
+            get
+            {
+                return "Combo";
+            }
+        }
+
         public double Price
         {
             get

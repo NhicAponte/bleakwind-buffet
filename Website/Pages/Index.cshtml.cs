@@ -22,27 +22,44 @@ namespace Website.Pages
             _logger = logger;
         }
         public IEnumerable<IOrderItem> MenuItems { get; set; }
+        [BindProperty(SupportsGet = true)]
         public string SearchTerms { get; set; }
+        [BindProperty(SupportsGet = true)]
         public string[] Categories { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public uint CalMin { get; set; } = 0;
+        public uint? CalMin { get; set; } = 0;
         [BindProperty(SupportsGet = true)]
-        public uint CalMax { get; set; } = 1000;
+        public uint? CalMax { get; set; } = 1000;
 
         [BindProperty(SupportsGet = true)]
-        public double PriceMin { get; set; } = 0;
+        public double? PriceMin { get; set; } = 0;
         [BindProperty(SupportsGet = true)]
-        public double PriceMax { get; set; } = 20;
+        public double? PriceMax { get; set; } = 20;
         public void OnGet()
         {
-            SearchTerms = Request.Query["SearchTerms"];
-            Categories = Request.Query["Categories"];
+            MenuItems = Menu.All;
+            //SearchTerms = Request.Query["SearchTerms"];
+            //Categories = Request.Query["Categories"];
 
-            MenuItems = Menu.Search(SearchTerms);
-            MenuItems = Menu.FilterByCategory(MenuItems, Categories);
-            MenuItems = Menu.FilterByCalories(MenuItems, CalMin, CalMax);
-            MenuItems = Menu.FilterByPrice(MenuItems, PriceMin, PriceMax);
+            //MenuItems = Menu.Search(SearchTerms);
+            if (SearchTerms != null)
+            {
+                MenuItems = MenuItems.Where(item => item.Name.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase));
+            }
+            //MenuItems = Menu.FilterByCategory(MenuItems, Categories);
+            if(Categories != null && Categories.Length != 0)
+            {
+                MenuItems = MenuItems.Where(item => Categories.Contains(item.Category));
+            }
+            //MenuItems = Menu.FilterByCalories(MenuItems, CalMin, CalMax);
+            if(CalMin == null) { CalMin = 0; }
+            if(CalMax == null) { CalMax = 1000; }
+            MenuItems = MenuItems.Where(item => item.Calories >= CalMin && item.Calories <= CalMax);
+            //MenuItems = Menu.FilterByPrice(MenuItems, PriceMin, PriceMax);
+            if (PriceMin == null) { PriceMin = 0; }
+            if (PriceMax == null) { PriceMax = 20; }
+            MenuItems = MenuItems.Where(item => item.Price >= PriceMin && item.Price <= PriceMax);
         }
     }
 }

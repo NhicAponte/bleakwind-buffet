@@ -92,7 +92,7 @@ namespace BleakwindBuffet.Data
                 MarkarthMilk mm = new MarkarthMilk(); 
                 mm.Size = s;
                 drinkList.Add(mm);
-
+                /*
                 foreach(SodaFlavor f in Enum.GetValues(typeof(SodaFlavor)))
                 {
                     SailorSoda ss = new SailorSoda();
@@ -100,7 +100,11 @@ namespace BleakwindBuffet.Data
                     ss.Flavor = f; 
                     drinkList.Add(ss); 
 
-                }
+                }*/
+
+                SailorSoda ss = new SailorSoda();
+                ss.Size = s;
+                drinkList.Add(ss);
 
                 WarriorWater w = new WarriorWater(); 
                 w.Size = s;
@@ -109,10 +113,10 @@ namespace BleakwindBuffet.Data
             return drinkList; 
         }
 
-        public static List<IOrderItem> menuItems = new List<IOrderItem>();
+        //public static List<IOrderItem> menuItems = new List<IOrderItem>();
         public static IEnumerable<IOrderItem> FullMenu()
         {
-            //List<IOrderItem> fullList = new List<IOrderItem>();
+            List<IOrderItem> menuItems = new List<IOrderItem>();
             
             menuItems.AddRange(Sides());
             menuItems.AddRange(Entrees());
@@ -162,15 +166,15 @@ namespace BleakwindBuffet.Data
             foreach(IOrderItem item in menuItems)
             {
 
-                if (Entrees().Contains(item))
+                if (category.Contains("Entree") && item is Entree)
                 {
                     results.Add(item);
                 }
-                if (Drinks().Contains(item))
+                if (category.Contains("Drink") && item is Drink)
                 {
                     results.Add(item);
                 }
-                if (Sides().Contains(item))
+                if (category.Contains("Side") && item is Side)
                 {
                     results.Add(item);
                 }

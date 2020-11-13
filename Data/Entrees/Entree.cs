@@ -15,6 +15,13 @@ namespace BleakwindBuffet.Data.Entrees
         public event PropertyChangedEventHandler PropertyChanged;
         public string Name => ToString();
 
+        public string Category {
+            get
+            {
+                return "Entree";
+            } 
+        }
+
         /// <summary>
         /// price of entree 
         /// </summary>\
