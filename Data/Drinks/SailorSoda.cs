@@ -20,7 +20,18 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// gets and sets the size of the drink 
         /// </summary> 
-        private Size size = Size.Small; 
+        private Size size = Size.Small;
+        /// <summary>
+        /// drink description 
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.";
+            }
+        }
+
         /// <summary>
         /// gets the price based on the size of the drink 
         /// </summary>

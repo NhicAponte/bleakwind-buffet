@@ -17,6 +17,16 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
+        /// entree description
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+            }
+        }
+        /// <summary>
         /// gets price 
         /// </summary>
         public override double Price => 5.62;

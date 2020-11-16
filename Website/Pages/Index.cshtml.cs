@@ -35,7 +35,7 @@ namespace Website.Pages
         [BindProperty(SupportsGet = true)]
         public double? PriceMin { get; set; } = 0;
         [BindProperty(SupportsGet = true)]
-        public double? PriceMax { get; set; } = 20;
+        public double? PriceMax { get; set; } = 9;
         public void OnGet()
         {
             MenuItems = Menu.All;
@@ -58,7 +58,7 @@ namespace Website.Pages
             MenuItems = MenuItems.Where(item => item.Calories >= CalMin && item.Calories <= CalMax);
             //MenuItems = Menu.FilterByPrice(MenuItems, PriceMin, PriceMax);
             if (PriceMin == null) { PriceMin = 0; }
-            if (PriceMax == null) { PriceMax = 20; }
+            if (PriceMax == null) { PriceMax = 9; }
             MenuItems = MenuItems.Where(item => item.Price >= PriceMin && item.Price <= PriceMax);
         }
     }

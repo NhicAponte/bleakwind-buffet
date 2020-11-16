@@ -14,7 +14,19 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// event handler from INotifyPropertyChanged interface 
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged; 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// entree description
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.";
+            }
+        }
+
         /// <summary>
         /// Gets burger price 
         /// </summary>

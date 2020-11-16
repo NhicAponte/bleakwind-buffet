@@ -18,7 +18,17 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// event handler from INotifyPropertyChanged interface 
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged; 
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// drink description 
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return " Hormone-free organic 2% milk.";
+            }
+        }
 
         /// <summary>
         /// gets the price based on the size of the drink 

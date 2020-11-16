@@ -17,7 +17,16 @@ namespace BleakwindBuffet.Data.Sides
         /// event handler from INotifyPropertyChanged interface 
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// side description 
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
+            }
+        }
         private Size size = Size.Small; 
         /// <summary>
         /// gets and sets value of size 

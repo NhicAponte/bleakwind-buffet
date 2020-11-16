@@ -20,6 +20,17 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        /// <summary>
+        /// side description 
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "The combo can be any side, entree, and drink.";
+            }
+        }
+
         public string Category
         {
             get

@@ -14,6 +14,7 @@ namespace BleakwindBuffet.Data.Entrees
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public string Name => ToString();
+        public abstract string Description { get; }
 
         public string Category {
             get

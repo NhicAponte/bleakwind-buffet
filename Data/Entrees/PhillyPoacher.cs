@@ -16,6 +16,16 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
+        /// entree description
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+            }
+        }
+        /// <summary>
         /// gets price 
         /// </summary>
         public override double Price => 7.23;

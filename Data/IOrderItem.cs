@@ -32,5 +32,6 @@ namespace BleakwindBuffet.Data
         string Name { get; }
 
         string Category { get; }
+        string Description { get; }
     }
 }

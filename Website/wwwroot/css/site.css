@@ -83,14 +83,24 @@ form#item-database {
     border: 8px solid orange; 
 }
 
-@media (max-width: 750px){
-    #filters { border: 4px dashed orange; }
-}
-
 #results{
     display: flex; 
     flex-direction: row;
 }
 #results > div {
     border: 2px groove green;
+}
+
+@media (max-width: 490px) {
+    form#item-database {
+        display: flex;
+        flex-direction: column;
+        border: 4px solid blue;
+    }
+
+    #results {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }

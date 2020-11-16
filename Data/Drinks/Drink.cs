@@ -22,6 +22,8 @@ namespace BleakwindBuffet.Data.Drinks
 
         public string Name => ToString();
 
+        public abstract string Description { get; }
+
         public string Category
         {
             get

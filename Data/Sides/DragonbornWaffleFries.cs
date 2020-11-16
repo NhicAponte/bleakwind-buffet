@@ -18,6 +18,16 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
+        /// side description 
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Crispy fried potato waffle fries.";
+            }
+        }
+        /// <summary>
         /// assigns value for size 
         /// </summary>
         private Size size = Size.Small; 

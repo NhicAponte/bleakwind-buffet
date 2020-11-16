@@ -15,6 +15,8 @@ namespace BleakwindBuffet.Data.Sides
 
         public string Name => ToString();
 
+        public abstract string Description { get; }
+
         public string Category
         {
             get
