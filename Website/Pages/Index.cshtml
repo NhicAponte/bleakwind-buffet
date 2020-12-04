@@ -8,33 +8,37 @@
 <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!</p>
 
 <form id="item-database">
-    <div id="filters">
-        <div id="search">
+    <div id="filterContainer">
+        <div id="filters">
+            <h4>Search</h4>
             <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
             <input type="submit" name="Search" />
         </div>
-        <h4>Category</h4>
-        @foreach (String category in BleakwindBuffet.Data.Menu.Categories)
-        {
-            <lable>
-                <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
-                @category
-            </lable>
-        }
 
-        <h4>Calories</h4>
-        <div>
-            Between
+        <div id="filters">
+            <h4>Category</h4>
+            @foreach (String category in BleakwindBuffet.Data.Menu.Categories)
+            {
+                <lable>
+                    <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
+                    @category
+                </lable>
+            }
+        </div>
+        
+        <div id="filters">
+            <h4>Calories</h4>
+            Between 
             <input name="calMin" type="number" min="0" max="1000" step="1" value="@Model.CalMin" placeholder="min" />
-            and
+            and 
             <input name="calMax" type="number" min="0" max="1000" step="1" value="@Model.CalMax" placeholder="min" />
         </div>
 
-        <h4>Price</h4>
-        <div>
-            Between
+        <div id="filters">
+            <h4>Price</h4>
+            Between $
             <input name="priceMin" type="number" min="0" max="1000" step="1" value="@Model.PriceMin" placeholder="min" />
-            and
+            and $
             <input name="priceMax" type="number" min="0" max="20" step="1" value="@Model.PriceMax" placeholder="min" />
         </div>
     </div>
@@ -47,14 +51,14 @@
 
                 if (item is BleakwindBuffet.Data.Entrees.Entree entree)
                 {
-                    <ol class="menu-item">
+                    <ul class="menu-item">
                         <li>
                             <h3>@entree.Name</h3>
                             <div>Calories: @entree.Calories</div>
                             <div>Price: @entree.Price</div>
                             <div>@entree.Description</div>
                         </li>
-                    </ol>
+                    </ul>
                 }
             }
         </div>
@@ -65,14 +69,14 @@
             {
                 if (item is BleakwindBuffet.Data.Sides.Side side)
                 {
-                    <ol class="menu-item">
+                    <ul class="menu-item">
                         <li>
                             <h3>@side.Name</h3>
                             <div>Calories: @side.Calories</div>
                             <div>Price: @side.Price</div>
                             <div>@side.Description</div>
                         </li>
-                    </ol>
+                    </ul>
                 }
             }
         </div>
@@ -83,7 +87,7 @@
             {
                 if (item is BleakwindBuffet.Data.Drinks.Drink drink)
                 {
-                    <ol class="menu-item">
+                    <ul class="menu-item">
                         <li>
                             <h3>@drink.Name</h3>
                             <div>Calories: @drink.Calories</div>
@@ -91,19 +95,33 @@
                             <div>@drink.Description</div>
                         </li>
 
-                    </ol>
+                    </ul>
                 }
             }
         </div>
 
         <div>
+            <h2>Combos</h2>
             <p>Combos can be made up of any entree, side, and drink with a $1 dollar discount on the combined price</p>
             <h2>Additional Soda Flavors</h2>
-            <h4>Blackberry</h4>
-            <h4>Grapefruit</h4>
-            <h4>Lemon</h4>
-            <h4>Peach</h4>
-            <h4>Watermelon</h4>
+            <ul>
+                <li>
+                    <h4>Blackberry</h4>
+                </li>
+                <li>
+                    <h4>Grapefruit</h4>
+                </li>
+                <li>
+                    <h4>Lemon</h4>
+                </li>
+                <li>
+                    <h4>Peach</h4>
+                </li>
+                <li>
+                    <h4>Watermelon</h4>
+                </li>
+            </ul>
+
         </div>
 
     </div>
